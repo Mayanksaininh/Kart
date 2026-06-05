@@ -1,2 +1,3 @@
 -npm init
 -install some essential packages from npm
+-start writing code
