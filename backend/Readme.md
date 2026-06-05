@@ -1,0 +1,2 @@
+-npm init
+-install some essential packages from npm
