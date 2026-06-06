@@ -1,13 +1,13 @@
-import User from "../models/userModel"
+import User from "../models/userModel.js"
 import validator from "validator";
-import bcrypt from "bcrypt.js"
+import bcrypt from "bcryptjs";
+import { genToken } from "../config/token.js";
 
 
-
-export const register = async (req,res) =>{
+export const registration = async (req,res) =>{
     try {
         const {name,email,password} = req.body
-        const userExist = await User.findone({email})
+        const userExist = await User.findOne({email})
         if(userExist) {
             return res.status(400).json({message :  "User already exist"})
         }
@@ -19,8 +19,17 @@ export const register = async (req,res) =>{
         }
         const hashPassword = await bcrypt.hash(password ,10)
         const user = await User.create({name,email,password : hashPassword})
+        const token = await genToken(user._id)
+        res.cookie("token" , token,{
+            httpOnly: true,
+            secure: true,
+            sameSite : "strict",
+            maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+        })
+        return res.status(201).json(user)
         
     } catch (error) {
-        
+        console.log("registration error");
+        return res.status(500).json({message  : `registration error ${error}`})
     }
 }
