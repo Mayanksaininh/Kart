@@ -68,3 +68,13 @@ export const login = async(req,res) =>{
         return res.status(400).json({message : "You can not login"})
     }
 }
+
+export const logOut = async(req,res) =>{
+    try {
+        res.clearCookie("token")
+        return res.status(200).json({message : "LogOut successful"})
+    } catch (error) {
+        console.log("login Error");
+        return res.status(500).json({message : "LogOut error"})
+    }
+}

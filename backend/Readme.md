@@ -6,3 +6,4 @@
 -create auth router,
 -test registration API,
 -Create login API,
+-Create LogOut API,
