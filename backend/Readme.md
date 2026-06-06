@@ -4,3 +4,4 @@
 -Connect DB,
 -create Auth for User,
 -create auth router,
+-test registration API,
