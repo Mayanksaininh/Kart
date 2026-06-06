@@ -1,3 +1,5 @@
--npm init
--install some essential packages from npm
--start writing code
+-npm init,
+-install some essential packages from npm,
+-start writing code,
+-Connect DB,
+-create Auth for User,
