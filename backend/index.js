@@ -14,11 +14,6 @@ app.use(cookieParser())
 
 app.use("/api/auth" , authRoute)
 
-
-app.get("/" , (req,res) => {
-    res.send("hello form app")
-})
-
 const port = process.env.PORT || 6000
 
 app.listen(port , () =>{

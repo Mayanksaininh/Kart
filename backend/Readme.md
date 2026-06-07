@@ -7,3 +7,4 @@
 -test registration API,
 -Create login API,
 -Create LogOut API,
+-Now work on frontend,
