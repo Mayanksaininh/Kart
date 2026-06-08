@@ -20,3 +20,4 @@ If you are developing a production application, we recommend using TypeScript wi
 -Creates body and header componenets ,
 -Adding logo ,
 -Create login page ,
+-Adding Google (SignUp with Google) Button ,
