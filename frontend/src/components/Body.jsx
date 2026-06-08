@@ -3,11 +3,13 @@ import { Routes , Route } from "react-router-dom";
 import Registration from "./Registration";
 import Home from "./Home";
 import Login from "./Login";
+import Header from "./Header";
 
 const Body = () =>{
     return (
-        <div className="bg-gray-700 h-screen flex items-center justify-center">
+        <div className="bg-gray-700 h-screen flex ">
         <>
+        <Header/>
         <Routes>
             <Route path = '/' element = {<Home/>}/>
             <Route path = '/login' element = {<Login/>}/>
