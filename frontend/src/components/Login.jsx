@@ -1,8 +1,10 @@
 import React from "react";
 import{logo} from "../utils/constant,jsx"
-
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+
+  const navigate = useNavigate()
   return (
     <div className="bg-black/50 p-6 rounded-xl shadow-md w-full max-w-md mx-auto mt-8 px-6 pt-8">
       
@@ -48,9 +50,11 @@ const Login = () => {
             Sign in
           </button>
         </form>
-         <p className="mt-3 text-center text-sm/6 text-gray-400">
-            Not User! Please signup
-          </p>
+        <p 
+              className="mt-3 text-center text-sm/6 text-gray-400 cursor-pointer" 
+              onClick={() => navigate("/signup")}>
+              Not User! Please signup
+        </p>
           <br></br>
           <div>
             <button className="flex items-center justify-center gap-3 w-full bg-white text-gray-700 font-medium py-2.5 px-4 rounded-md shadow-sm border border-gray-200 hover:bg-gray-300 transition cursor-pointe">
