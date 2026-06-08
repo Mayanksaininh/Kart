@@ -12,7 +12,7 @@ const Login = () => {
           src={logo}
           className="mx-auto h-15 w-auto"
         />
-        <h2 className="mt-10 text-center text-2xl font-bold tracking-tight text-white ">
+        <h2 className="mt-4 text-center text-2xl font-bold tracking-tight text-white ">
           Sign in to your account
         </h2>
          <h4 className="mt-3 text-center  tracking-tight text-white">
@@ -20,7 +20,7 @@ const Login = () => {
         </h4>
       </div>
 
-      <div className="mt-10 sm:w-full sm:max-w-sm">
+      <div className="mt-5 sm:w-full sm:max-w-sm">
         <form className="space-y-6">
           <div>
             <label className="block text-sm font-medium text-gray-100">
@@ -29,7 +29,7 @@ const Login = () => {
             <input
               type="email"
               required
-              className="mt-2 block w-full rounded-md bg-white/5 px-3 py-1.5 text-white outline outline-1 outline-white/10 focus:outline-2 focus:outline-indigo-500"
+              className="mt-1 block w-full rounded-md bg-white/5 px-3 py-1.5 text-white outline outline-1 outline-white/10 focus:outline-2 focus:outline-indigo-500"
             />
           </div>
 
@@ -40,7 +40,7 @@ const Login = () => {
             <input
               type="password"
               required
-              className="mt-2 block w-full rounded-md bg-white/5 px-3 py-1.5 text-white outline outline-1 outline-white/10 focus:outline-2 focus:outline-indigo-500"
+              className="mt-1 block w-full rounded-md bg-white/5 px-3 py-1.5 text-white outline outline-1 outline-white/10 focus:outline-2 focus:outline-indigo-500"
             />
           </div>
 
@@ -48,12 +48,14 @@ const Login = () => {
             Sign in
           </button>
         </form>
-         <p className="mt-10 text-center text-sm/6 text-gray-400">
+         <p className="mt-3 text-center text-sm/6 text-gray-400">
             Not User! Please signup
           </p>
           <br></br>
           <div>
-            <button className="flex items-center justify-center gap-3 w-full bg-white text-gray-700 font-medium py-2.5 px-4 rounded-md shadow-sm border border-gray-300 hover:bg-gray-100 transition">
+            <button className="flex items-center justify-center gap-3 w-full bg-white text-gray-700 font-medium py-2.5 px-4 rounded-md shadow-sm border border-gray-200 hover:bg-gray-300 transition cursor-pointe">
+
+
                 {/* Google Icon */}
             <svg className="w-5 h-5" viewBox="0 0 48 48">
             <path fill="#EA4335" d="M24 9.5c3.54 0 6.36 1.53 7.82 2.82l5.76-5.76C34.64 3.14 29.74 1 24 1 14.64 1 6.64 6.88 2.94 15.28l6.84 5.32C11.74 13.14 17.34 9.5 24 9.5z"/>
