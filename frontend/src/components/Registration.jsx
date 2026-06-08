@@ -24,7 +24,7 @@ const Registration = () => {
                 </h4>
               </div>
         
-              <div className="mt-5 sm:w-full sm:max-w-sm">
+              <div className="mt-2 sm:w-full sm:max-w-sm">
                 <form className="space-y-6">
                     <div>
                     <label className="block text-sm font-medium text-gray-100">
@@ -59,13 +59,13 @@ const Registration = () => {
                   </div>
         
                   <button className="w-full rounded-md bg-indigo-500 py-1.5 text-white font-semibold hover:bg-indigo-400 ">
-                    Sign in
+                    Sign Up
                   </button>
                 </form>
                 <p 
                       className="mt-3 text-center text-sm/6 text-gray-400 cursor-pointer" 
                       onClick={() => navigate("/")}>
-                      Already User! Please directly Sign In 
+                      Already User! Please Sign In, Click here!
                 </p>
                   <br></br>
                   <div>

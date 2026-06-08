@@ -53,7 +53,7 @@ const Login = () => {
         <p 
               className="mt-3 text-center text-sm/6 text-gray-400 cursor-pointer" 
               onClick={() => navigate("/signup")}>
-              Not User! Please signup
+              Not User! Please signup, Click here!
         </p>
           <br></br>
           <div>
