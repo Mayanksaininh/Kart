@@ -7,12 +7,12 @@ import Header from "./Header";
 
 const Body = () =>{
     return (
-        <div className="bg-gray-700 h-screen flex ">
+        <div className="flex flex-col h-screen bg-gray-700">
         <>
         <Header/>
         <Routes>
-            <Route path = '/' element = {<Home/>}/>
-            <Route path = '/login' element = {<Login/>}/>
+            <Route path = '/' element = {<Login/>}/>
+            <Route path = '/home' element = {<Home/>}/>
             <Route path = '/signup' element = {<Registration/>}/>
         </Routes> 
         
