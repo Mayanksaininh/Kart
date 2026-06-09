@@ -16,7 +16,7 @@ const Registration = () => {
     const handleSignUp = async(e) =>{
       e.preventDefault()
       try {
-        const result = await axios.post(ServerUrl + "/api/user/registration" , {
+        const result = await axios.post(ServerUrl + "/api/auth/registration" , {
           name,email,password
         } , 
         {withCredentials : true})
