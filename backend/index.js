@@ -17,6 +17,7 @@ app.use(cors({
     credentials : true,
 }))
 
+
 app.use("/api/auth" , authRoute)
 
 const port = process.env.PORT || 6000
