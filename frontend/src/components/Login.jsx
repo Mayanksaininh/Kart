@@ -1,8 +1,33 @@
-import React from "react";
+import React , { useContext }  from "react";
 import{logo} from "../utils/constant,jsx"
 import { useNavigate } from "react-router-dom";
+import { AuthDataContext } from "../context/AuthContext";
+import { useState } from "react";
+import axios from "axios"
+
 
 const Login = () => {
+
+  
+      const {ServerUrl}  = useContext(AuthDataContext)
+      const[email,setemail] = useState("")
+      const[password , setpassword] = useState("")
+      
+      const handlelogin = async(e) =>{
+      e.preventDefault()
+      try {
+        const result = await axios.post(ServerUrl + "/api/auth/login" , {
+          email,password
+        } , 
+        {withCredentials : true})
+        console.log(result.data);
+      } 
+      
+      catch (error) {
+        console.log(error);
+      }
+    }
+
 
   const navigate = useNavigate()
   return (
@@ -23,7 +48,7 @@ const Login = () => {
       </div>
 
       <div className="mt-5 sm:w-full sm:max-w-sm">
-        <form className="space-y-6">
+        <form className="space-y-6"  onSubmit={handlelogin}>
           <div>
             <label className="block text-sm font-medium text-gray-100">
               Email address
@@ -31,7 +56,7 @@ const Login = () => {
             <input
               type="email"
               required
-              className="mt-1 block w-full rounded-md bg-white/5 px-3 py-1.5 text-white outline outline-1 outline-white/10 focus:outline-2 focus:outline-indigo-500"
+              className="mt-1 block w-full rounded-md bg-white/5 px-3 py-1.5 text-white outline outline-1 outline-white/10 focus:outline-2 focus:outline-indigo-500" onChange={(e) => setemail(e.target.value)} value = {email}
             />
           </div>
 
@@ -42,7 +67,7 @@ const Login = () => {
             <input
               type="password"
               required
-              className="mt-1 block w-full rounded-md bg-white/5 px-3 py-1.5 text-white outline outline-1 outline-white/10 focus:outline-2 focus:outline-indigo-500"
+              className="mt-1 block w-full rounded-md bg-white/5 px-3 py-1.5 text-white outline outline-1 outline-white/10 focus:outline-2 focus:outline-indigo-500" onChange={(e) => setpassword(e.target.value)} value = {password}
             />
           </div>
 
