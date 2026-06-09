@@ -8,3 +8,4 @@
 -Create login API,
 -Create LogOut API,
 -Now work on frontend,
+-Adding cors to index.js file ,
