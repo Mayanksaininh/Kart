@@ -1,5 +1,5 @@
 import React , { useContext }  from "react";
-import{logo} from "../utils/constant,jsx"
+import{logo} from "../utils/constant.jsx"
 import { useNavigate } from "react-router-dom";
 import { AuthDataContext } from "../context/AuthContext";
 import { useState } from "react";

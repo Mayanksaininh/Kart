@@ -23,3 +23,5 @@ If you are developing a production application, we recommend using TypeScript wi
 -Adding Google (SignUp with Google) Button ,
 -Craete Registration page , and also user useNavigate package from react-router-dom ,
 -Create Context API ,
+-Install firebase ,
+-Add google sign in with pop up ,

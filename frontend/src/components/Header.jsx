@@ -1,5 +1,5 @@
 import React from "react"
-import { logo } from "../utils/constant,jsx"
+import { logo } from "../utils/constant.jsx"
 
 
 const Header = () =>{

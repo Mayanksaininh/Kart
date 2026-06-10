@@ -1,10 +1,11 @@
 import React, { useContext } from "react"
 import { useNavigate } from "react-router-dom";
-import{logo} from "../utils/constant,jsx"
+import{logo} from "../utils/constant.jsx"
 import { AuthDataContext } from "../context/AuthContext";
 import { useState } from "react";
 import axios from "axios"
-
+import {signInWithPopup} from "firebase/auth"
+import {auth ,provider } from "../utils/firebase.jsx"
 
 const Registration = () => {
 
@@ -27,9 +28,19 @@ const Registration = () => {
         console.log(error);
       }
     }
-  
+    
+    const navigate = useNavigate()
 
-     const navigate = useNavigate()
+    const googleSignup = async () =>{
+      try {
+        const response = await signInWithPopup(auth , provider )
+        
+        
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
        return (
         <div className="bg-black/50 p-6 rounded-xl shadow-md w-full max-w-md mx-auto mt-8 px-6 pt-8">
               
@@ -92,11 +103,11 @@ const Registration = () => {
                 </p>
                   <br></br>
                   <div>
-                    <button className="flex items-center justify-center gap-3 w-full bg-white text-gray-700 font-medium py-2.5 px-4 rounded-md shadow-sm border border-gray-200 hover:bg-gray-300 transition cursor-pointe">
+                    <button className="flex items-center justify-center gap-3 w-full bg-white text-gray-700 font-medium py-2.5 px-4 rounded-md shadow-sm border border-gray-200 hover:bg-gray-300 transition cursor-pointe"  onClick={googleSignup}>
         
         
                         {/* Google Icon */}
-                    <svg className="w-5 h-5" viewBox="0 0 48 48">
+                    <svg className="w-5 h-5" viewBox="0 0 48 48"  >
                     <path fill="#EA4335" d="M24 9.5c3.54 0 6.36 1.53 7.82 2.82l5.76-5.76C34.64 3.14 29.74 1 24 1 14.64 1 6.64 6.88 2.94 15.28l6.84 5.32C11.74 13.14 17.34 9.5 24 9.5z"/>
                     <path fill="#4285F4" d="M46.5 24c0-1.64-.14-2.82-.44-4.04H24v7.64h12.94c-.26 1.9-1.66 4.76-4.76 6.7l7.32 5.68C44.9 35.64 46.5 30.4 46.5 24z"/>
                     <path fill="#FBBC05" d="M9.78 28.6A14.5 14.5 0 0 1 9 24c0-1.6.28-3.14.78-4.6l-6.84-5.32A23.96 23.96 0 0 0 1 24c0 3.88.94 7.54 2.94 10.92l6.84-5.32z"/>
