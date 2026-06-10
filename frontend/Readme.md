@@ -25,3 +25,4 @@ If you are developing a production application, we recommend using TypeScript wi
 -Create Context API ,
 -Install firebase ,
 -Add google sign in with pop up ,
+-Create SignUp and SignIn with Google ,

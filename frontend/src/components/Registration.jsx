@@ -34,8 +34,16 @@ const Registration = () => {
     const googleSignup = async () =>{
       try {
         const response = await signInWithPopup(auth , provider )
-        
-        
+        const user = response.user
+        const name = user.displayName
+        const email = user.email 
+
+        const result = await axios.post(ServerUrl + "/api/auth/googleLogIn" , {name,email},
+          {withCredentials : true},
+          console.log(result.data)
+
+        )
+
       } catch (error) {
         console.log(error);
       }

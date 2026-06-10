@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { AuthDataContext } from "../context/AuthContext";
 import { useState } from "react";
 import axios from "axios"
+import {signInWithPopup} from "firebase/auth"
+import {auth ,provider } from "../utils/firebase.jsx"
 
 
 const Login = () => {
@@ -30,6 +32,26 @@ const Login = () => {
 
 
   const navigate = useNavigate()
+
+   const googleLogIn = async () =>{
+      try {
+        const response = await signInWithPopup(auth , provider )
+        const user = response.user
+        const name = user.displayName
+        const email = user.email 
+
+        const result = await axios.post(ServerUrl + "/api/auth/googleLogIn" , {name,email},
+          {withCredentials : true},
+          console.log(result.data)
+
+        )
+
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+
   return (
     <div className="bg-black/50 p-6 rounded-xl shadow-md w-full max-w-md mx-auto mt-8 px-6 pt-8">
       
@@ -82,7 +104,7 @@ const Login = () => {
         </p>
           <br></br>
           <div>
-            <button className="flex items-center justify-center gap-3 w-full bg-white text-gray-700 font-medium py-2.5 px-4 rounded-md shadow-sm border border-gray-200 hover:bg-gray-300 transition cursor-pointe">
+            <button className="flex items-center justify-center gap-3 w-full bg-white text-gray-700 font-medium py-2.5 px-4 rounded-md shadow-sm border border-gray-200 hover:bg-gray-300 transition cursor-pointe"  onClick={googleLogIn}>
 
 
                 {/* Google Icon */}

@@ -78,3 +78,29 @@ export const logOut = async(req,res) =>{
         return res.status(500).json({message : "LogOut error"})
     }
 }
+
+
+export const googleLogIn = async(req,res) =>{
+    try {
+        const {name , email} = req.body
+        const user = await User.findOne({email})
+         if(!user){
+            user = await User.create({
+                name , email
+            })
+        }
+
+        const token = await genToken(user._id)
+        res.cookie("token" , token,{
+            httpOnly: true,
+            secure: false,
+            sameSite : "strict",
+            maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+        })
+        
+        return res.status(200).json(user)
+
+    } catch (error) {
+             return res.status(400).json({message : "Google login error"})
+    }
+}
