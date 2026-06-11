@@ -13,7 +13,6 @@ createRoot(document.getElementById('root')).render(
       <UserContext>
         <Body/>
       </UserContext>
-      <Body/>
     </AuthContext>
   </BrowserRouter>
     

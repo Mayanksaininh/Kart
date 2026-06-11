@@ -83,7 +83,7 @@ export const logOut = async(req,res) =>{
 export const googleLogIn = async(req,res) =>{
     try {
         const {name , email} = req.body
-        const user = await User.findOne({email})
+        let user = await User.findOne({email})
          if(!user){
             user = await User.create({
                 name , email
