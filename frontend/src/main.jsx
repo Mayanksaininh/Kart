@@ -5,10 +5,14 @@ import './index.css'
 import {BrowserRouter} from 'react-router-dom'
 import Body from './components/Body.jsx'
 import AuthContext from './context/AuthContext.jsx'
+import UserContext from "./context/UserContext.jsx"
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter> 
     <AuthContext>
+      <UserContext>
+        <Body/>
+      </UserContext>
       <Body/>
     </AuthContext>
   </BrowserRouter>

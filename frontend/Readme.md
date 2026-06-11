@@ -26,3 +26,4 @@ If you are developing a production application, we recommend using TypeScript wi
 -Install firebase ,
 -Add google sign in with pop up ,
 -Create SignUp and SignIn with Google ,
+-Creating Get Current User API ,

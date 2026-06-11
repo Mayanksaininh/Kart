@@ -10,3 +10,4 @@
 -Now work on frontend,
 -Adding cors to index.js file ,
 -Create Authentication Middleware ,
+-Creating Get Current User API ,
