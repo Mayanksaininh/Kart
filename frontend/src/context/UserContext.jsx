@@ -14,7 +14,7 @@ const UserContextProvider = ({ children }) => {
         ServerUrl + "/api/user/getCurrentUser",
         { withCredentials: true }
       );
-      setUserData(res.data);
+      setUserData(res.data.user);
     } catch (error) {
       setUserData(null);
     }

@@ -28,3 +28,4 @@ If you are developing a production application, we recommend using TypeScript wi
 -Create SignUp and SignIn with Google ,
 -Creating Get Current User API ,
 -Makes routes protected with useCallback react hook ,
+-Fix protected buttons ,
