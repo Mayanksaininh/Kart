@@ -1,44 +1,41 @@
-import React, { createContext, useContext, useState } from "react";
-import  { AuthDataContext } from "./AuthContext";
+import { createContext, useEffect, useState, useCallback } from "react";
 import axios from "axios";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
+export const userDataContext = createContext();
 
+const UserContextProvider = ({ children }) => {
+  const [userData, setUserData] = useState(null);
+  const ServerUrl = "http://localhost:8000"; // or from env
 
-export const userDataContext = createContext()
-function UserContext({children}) {
-
-    const [userData , setuserData] = useState()
-    const {serverUrl} = useContext(AuthDataContext)
-    const navigate = useNavigate()
-
-     const  getCurrentUser = async() => {
-        try {
-            const result = await axios.get(serverUrl + "/api/user/getCurrentUser" , {withCredentials : true})
-            setuserData(result.data)
-             navigate("/home")
-        } catch (error) {
-            console.log(error);
-            navigate("/") 
-        }
+  // ✅ stable function (important)
+  const getCurrentUser = useCallback(async () => {
+    try {
+      const res = await axios.get(
+        ServerUrl + "/api/user/getCurrentUser",
+        { withCredentials: true }
+      );
+      setUserData(res.data);
+    } catch (error) {
+      setUserData(null);
     }
+  }, []);
 
-    useEffect(()=>{
-        getCurrentUser()
-    },[])
+  // ✅ run only once safely
+  useEffect(() => {
+    getCurrentUser();
+  }, [getCurrentUser]);
 
-    const value = { 
-        userData , setuserData, getCurrentUser
-    }
+  const value = {
+    userData,
+    setUserData,     // ⚠️ fix naming (capital U)
+    getCurrentUser,
+  };
 
-    return (
-        
-            <userDataContext.Provider value = {value}>
-                {children}
-            </userDataContext.Provider>
-        
-    )
-}
+  return (
+    <userDataContext.Provider value={value}>
+      {children}
+    </userDataContext.Provider>
+  );
+};
 
-export default UserContext
+export default UserContextProvider;

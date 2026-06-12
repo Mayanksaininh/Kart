@@ -4,6 +4,7 @@ import Registration from "./Registration";
 import Home from "./Home";
 import Login from "./Login";
 import Header from "./Header";
+import PrivateRoute from "./PrivateRoute";
 
 const Body = () =>{
     return (
@@ -12,8 +13,16 @@ const Body = () =>{
         <Header/>
         <Routes>
             <Route path = '/' element = {<Login/>}/>
-            <Route path = '/home' element = {<Home/>}/>
+            {/* <Route path = '/home' element = {<Home/>}/> */}
             <Route path = '/signup' element = {<Registration/>}/>
+              <Route
+            path="/home"
+            element={
+            <PrivateRoute>
+               <Home />
+            </PrivateRoute>
+    }
+  />
         </Routes> 
         
         </>

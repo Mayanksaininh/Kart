@@ -6,6 +6,7 @@ import { useState } from "react";
 import axios from "axios"
 import {signInWithPopup} from "firebase/auth"
 import {auth ,provider } from "../utils/firebase.jsx"
+import { userDataContext } from "../context/UserContext";
 
 
 const Login = () => {
@@ -14,6 +15,8 @@ const Login = () => {
       const {ServerUrl}  = useContext(AuthDataContext)
       const[email,setemail] = useState("")
       const[password , setpassword] = useState("")
+      const navigate = useNavigate();
+      const { setUserData } = useContext(userDataContext);
       
       const handlelogin = async(e) =>{
       e.preventDefault()
@@ -23,6 +26,9 @@ const Login = () => {
         } , 
         {withCredentials : true})
         console.log(result.data);
+
+         setUserData(result.data);   // ✅ store user
+         navigate("/home");          // ✅ redirect
       } 
       
       catch (error) {
@@ -30,8 +36,6 @@ const Login = () => {
       }
     }
 
-
-  const navigate = useNavigate()
 
    const googleLogIn = async () =>{
       try {
@@ -41,10 +45,13 @@ const Login = () => {
         const email = user.email 
 
         const result = await axios.post(ServerUrl + "/api/auth/googleLogIn" , {name,email},
-          {withCredentials : true},
+          {withCredentials : true},)
           console.log(result.data)
 
-        )
+          setUserData(result.data);
+          navigate("/home");
+
+        
 
       } catch (error) {
         console.log(error);
