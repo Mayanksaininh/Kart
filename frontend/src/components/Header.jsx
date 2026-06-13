@@ -4,6 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { userDataContext } from "../context/UserContext";
 import { MdSearch } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
+import { BsCart2 } from "react-icons/bs";
+
+
 
 const Header = () => {
   const { userData } = useContext(userDataContext);
@@ -41,9 +44,14 @@ const Header = () => {
             <MdSearch className="text-white text-2xl" />
         </div>
 
-         <div className="p-1">
+         <div className="p-2">
            <CgProfile className="text-white text-2xl" />
-           </div>
+          </div>
+
+        <div className="p-1">
+          <BsCart2 className="text-white text-2xl"/>
+          <p className="absolute w-[18px] h-[18px] md:flex justify-center bg-red-500 px-[5px] py-[5py] text-white items-center rounded-full text-[9px] top-[10px] right-[23px] hidden">1</p>
+        </div>
 
       </div>
 )}
