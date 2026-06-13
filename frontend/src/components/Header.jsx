@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import { logo } from "../utils/constant.jsx";
 import { useNavigate } from "react-router-dom";
 import { userDataContext } from "../context/UserContext";
-
+import { MdSearch } from "react-icons/md";
+import { CgProfile } from "react-icons/cg";
 
 const Header = () => {
   const { userData } = useContext(userDataContext);
@@ -33,6 +34,19 @@ const Header = () => {
           </button>
         </div>
       )}
+     {userData && userData._id && (
+      <div className="flex items-center ml-auto gap-0 pr-2">
+    
+        <div className="p-2">
+            <MdSearch className="text-white text-2xl" />
+        </div>
+
+         <div className="p-1">
+           <CgProfile className="text-white text-2xl" />
+           </div>
+
+      </div>
+)}
     </div>
   );
 };
