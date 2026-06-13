@@ -15,7 +15,7 @@ function AuthContext({ children }) {
   // On every refresh → ask the server "who am I?"
   useEffect(() => {
     axios
-      .get(`${ServerUrl}/api/auth/me`, { withCredentials: true })
+      .get(`${ServerUrl}/api/user/getCurrentUser`, { withCredentials: true })
       .then((res) => setUser(res.data))
       .catch(() => setUser(null))       // no cookie / expired → null
       .finally(() => setLoading(false));

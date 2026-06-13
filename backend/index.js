@@ -26,7 +26,7 @@ app.use(cookieParser())
 app.use("/api/auth" , authRoute)
 app.use("/api/user" , userRoutes)
 
-const port = process.env.PORT || 6000
+const port = 8000
 
 app.listen(port , () =>{
     connectDB()
