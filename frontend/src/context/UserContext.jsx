@@ -5,6 +5,7 @@ export const userDataContext = createContext();
 
 const UserContextProvider = ({ children }) => {
   const [userData, setUserData] = useState(null);
+  const [loading, setLoading] = useState(true);
   const ServerUrl = "http://localhost:8000"; // or from env
 
   // ✅ stable function (important)
@@ -18,6 +19,9 @@ const UserContextProvider = ({ children }) => {
     } catch (error) {
       setUserData(null);
     }
+    finally {
+    setLoading(false); // ✅ important
+  }
   }, []);
 
   // ✅ run only once safely
@@ -29,6 +33,7 @@ const UserContextProvider = ({ children }) => {
     userData,
     setUserData,     // ⚠️ fix naming (capital U)
     getCurrentUser,
+    loading,
   };
 
   return (

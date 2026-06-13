@@ -28,7 +28,7 @@ const Login = () => {
         console.log(result.data);
 
          setUserData(result.data);   // ✅ store user
-         navigate("/home");          // ✅ redirect
+         navigate("/home", { replace: true });         // ✅ redirect
       } 
       
       catch (error) {
@@ -49,7 +49,7 @@ const Login = () => {
           console.log(result.data)
 
           setUserData(result.data);
-          navigate("/home");
+          navigate("/home", { replace: true });
 
         
 
