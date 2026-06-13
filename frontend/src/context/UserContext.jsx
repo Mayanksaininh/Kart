@@ -22,7 +22,7 @@ const UserContextProvider = ({ children }) => {
     finally {
     setLoading(false); // ✅ important
   }
-  }, []);
+  }, [ServerUrl]);
 
   // ✅ run only once safely
   useEffect(() => {
