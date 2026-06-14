@@ -2,10 +2,10 @@
 import React from "react";
 import { useContext } from "react";
 import { Navigate } from "react-router-dom";
-import { AuthDataContext } from "../context/AuthContext";
+import { userDataContext} from "../context/UserContext";
 
 const PrivateRoute = ({ children }) => {
-  const { userData, loading } = useContext(AuthDataContext);
+  const { userData, loading } = useContext(userDataContext);
 
   // ⏳ Wait until API finishes
   if (loading) {

@@ -2,8 +2,7 @@ import React, { useContext } from "react";
 import { logo } from "../utils/constant.jsx";
 import { useNavigate } from "react-router-dom";
 import { userDataContext } from "../context/UserContext";
-import { MdSearch } from "react-icons/md";
-import { CgProfile } from "react-icons/cg";
+// import { MdSearch } from "react-icons/md";
 import { BsCart2 } from "react-icons/bs";
 
 
@@ -12,6 +11,7 @@ const Header = () => {
   const { userData } = useContext(userDataContext);
   const navigate = useNavigate();
   
+ 
 
   return (
     <div className="w-full bg-gradient-to-b from-black/100 to-black/20 h-16 flex items-center justify-between px-4">
@@ -40,13 +40,19 @@ const Header = () => {
      {userData && userData._id && (
       <div className="flex items-center ml-auto gap-0 pr-2">
     
-        <div className="p-2">
+        {/* <div className="p-2">
             <MdSearch className="text-white text-2xl" />
-        </div>
+        </div> */}
 
-         <div className="p-2">
-           <CgProfile className="text-white text-2xl" />
+
+       {userData && userData._id && (
+         <div className="p-2 flex items-center gap-2">
+           <div className="w-9 h-9 flex items-center justify-center rounded-full bg-gray-600 text-white font-semibold text-sm uppercase">
+              {userData?.name?.[0] || "U"}
+           </div>
+          
           </div>
+        )}
 
         <div className="p-1">
           <BsCart2 className="text-white text-2xl"/>
