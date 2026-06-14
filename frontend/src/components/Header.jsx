@@ -54,17 +54,17 @@ const Header = () => {
            </div>
            
       {ShowProfile && (
-  <div className="absolute w-[200px] bg-white top-[110%] right-[4%] border border-[#e0e0e0] rounded-xl z-10 shadow-md overflow-hidden">
-    <ul className="list-none m-0 py-1">
-      <li className="flex items-center gap-2 px-4 py-3 text-sm text-gray-700 cursor-pointer hover:bg-gray-100 transition-colors">
-        <span>📦</span> My orders
-      </li>
-      <li className="h-px bg-gray-100 mx-3" />
-      <li className="flex items-center gap-2 px-4 py-3 text-sm text-red-500 cursor-pointer hover:bg-gray-100 transition-colors">
-        <span>🚪</span> Log out
-      </li>
-    </ul>
-  </div>
+              <div className="absolute w-[200px] bg-white top-[110%] right-[4%] border border-[#e0e0e0] rounded-xl z-10 shadow-md overflow-hidden">
+                 <ul className="list-none m-0 py-1">
+                       <li className="flex items-center gap-2 px-4 py-3 text-sm text-gray-700 cursor-pointer hover:bg-gray-100 transition-colors">
+                        <span>📦</span> My orders
+                       </li>
+                    <li className="h-px bg-gray-100 mx-3" />
+                       <li className="flex items-center gap-2 px-4 py-3 text-sm text-red-500 cursor-pointer hover:bg-gray-100 transition-colors">
+                       <span>🚪</span> Log out
+                       </li>
+                   </ul>
+              </div>
 )}
           
           </div>
