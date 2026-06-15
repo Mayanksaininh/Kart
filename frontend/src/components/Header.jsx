@@ -5,18 +5,32 @@ import { userDataContext } from "../context/UserContext";
 // import { MdSearch } from "react-icons/md";
 import { BsCart2 } from "react-icons/bs";
 import { useState } from "react";
+import { AuthDataContext } from "../context/AuthContext";
+import axios from "axios";
+
 
 
 
 const Header = () => {
-  const { userData } = useContext(userDataContext);
+  const { userData , getCurrentUser} = useContext(userDataContext);
+  let {ServerUrl} = useContext(AuthDataContext)
   const navigate = useNavigate();
   const [ShowProfile , setShowProfile] = useState(false)
   
+  const handleLogOut = async () =>{
+    try {
+      const result = await axios.get(ServerUrl + "/api/auth/logOut" , {withCredentials : true})
+      console.log(result.data);
+      getCurrentUser()
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
  
 
   return (
-    <div className="w-full bg-gradient-to-b from-black/100 to-black/20 h-16 flex items-center justify-between px-4">
+    <div className="w-full bg-gradient-to-b from-black/100 to-black/20 h-16 flex items-center justify-between px-0">
       
       <div className="flex items-center">
         <img className="h-10 md:h-12 w-auto" src={logo} alt="logo" />
@@ -25,7 +39,7 @@ const Header = () => {
 
       {/* ✅ Only show after login */}
       {userData &&  userData._id && (
-        <div className="absolute left-1/2 transform -translate-x-1/2 flex gap-5">
+        <div className="absolute left-1/2 transform -translate-x-1/2 flex gap-3">
           <button onClick={() => navigate("/home")} className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded-lg">
             Home
           </button>
@@ -56,14 +70,18 @@ const Header = () => {
       {ShowProfile && (
               <div className="absolute w-[200px] bg-white top-[110%] right-[4%] border border-[#e0e0e0] rounded-xl z-10 shadow-md overflow-hidden">
                  <ul className="list-none m-0 py-1">
-                       <li className="flex items-center gap-2 px-4 py-3 text-sm text-gray-700 cursor-pointer hover:bg-gray-100 transition-colors">
+                       <li className="flex items-center gap-1 px-2 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-100 transition-colors">
                         <span>📦</span> My orders
                        </li>
-                    <li className="h-px bg-gray-100 mx-3" />
-                       <li className="flex items-center gap-2 px-4 py-3 text-sm text-red-500 cursor-pointer hover:bg-gray-100 transition-colors">
-                       <span>🚪</span> Log out
+                    <ul className="h-px bg-gray-100 mx-3" />
+                       <li className="flex items-center gap-1 px-2 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-100 transition-colors">
+                       <span>🛒</span> Cart
+                       </li>
+                        <li className="flex items-center gap-1 px-2 py-2 text-sm text-red-500 cursor-pointer hover:bg-gray-100 transition-colors" onClick={handleLogOut}>
+                       <span>🚪</span> Log Out
                        </li>
                    </ul>
+                   
               </div>
 )}
           
