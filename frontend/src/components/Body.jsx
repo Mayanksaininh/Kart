@@ -11,7 +11,7 @@ import Art from "./Art";
 
 const Body = () => {
   return (
-    <div className="flex flex-col h-screen bg-gray-700">
+    <div className="flex flex-col min-h-screen bg-gray-700">
       <Header />
 
       <Routes>

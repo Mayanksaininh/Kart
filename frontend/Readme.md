@@ -30,3 +30,4 @@ If you are developing a production application, we recommend using TypeScript wi
 -Makes routes protected with useCallback react hook ,
 -Fix protected buttons ,
 -Create LogOut API ,
+-Starts creating home page ,
