@@ -32,3 +32,4 @@ If you are developing a production application, we recommend using TypeScript wi
 -Create LogOut API ,
 -Starts creating home page ,
 -Create Hero component ,
+-Create Our Policy component and render it on Home ,

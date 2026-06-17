@@ -3,7 +3,7 @@ import { First_slide } from "../utils/constant";
 import { Craft1, Craft2, Craft3, Craft4 } from "../utils/constant";
 import { Art1, Art2, Art3 , Art4 } from "../utils/constant";
 
-const AUTOPLAY_INTERVAL = 4000;
+const AUTOPLAY_INTERVAL = 3000;
 
 const ImageSlider = ({ images, altPrefix = "Slide" }) => {
   const [current, setCurrent] = useState(0);
