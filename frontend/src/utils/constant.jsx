@@ -8,9 +8,13 @@ export const Craft2 = "https://cdn.vibecity.in/providers/630490fcad2819001186812
 
 export const Craft3 = "https://i.pinimg.com/736x/31/8c/f7/318cf7824069938d580da1727f7ffe1f.jpg"
 
+export const Craft4 = "https://i0.wp.com/makezine.com/wp-content/uploads/2016/03/m50_SS_PaperAll-12-e1458316462272.jpg?ssl=1"
+
 
 export const Art1 = "https://tiimg.tistatic.com/fp/1/009/085/soulful-krishna-canvas-painting-610.jpg" 
 
 export const Art2 = "https://www.stonedsanta.in/wp-content/uploads/2024/01/bharatnayam-lady-oil-painting-portrait-scaled.jpg" 
 
 export const Art3 = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLq_2c2PaTYXsPg5oDV-2zzQCw8rjwMJ91kdhs-wGCk-EgXk98KRrZHKY&s=10"
+
+export const Art4 = "https://i.pinimg.com/474x/9f/f8/e1/9ff8e1c43c79a5998357eeb055d098b2.jpg"
