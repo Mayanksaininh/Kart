@@ -31,3 +31,4 @@ If you are developing a production application, we recommend using TypeScript wi
 -Fix protected buttons ,
 -Create LogOut API ,
 -Starts creating home page ,
+-Create Hero component ,
