@@ -7,7 +7,7 @@ import Header from "./Header";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
 import Collection from "./Collection";
-import Art from "./Art";
+import Contact from "./Contact";
 
 const Body = () => {
   return (
@@ -45,10 +45,10 @@ const Body = () => {
         />
 
         <Route
-          path="/art"
+          path="/contact"
           element={
             <PrivateRoute>
-              <Art />
+              <Contact />
             </PrivateRoute>
           }
         />

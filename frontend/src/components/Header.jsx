@@ -39,7 +39,7 @@ const Header = () => {
 
       {/* ✅ Only show after login */}
       {userData &&  userData._id && (
-        <div className="absolute left-1/2 transform -translate-x-1/2 flex gap-3">
+        <div className="absolute left-1/2 transform -translate-x-1/2 flex gap-2">
           <button onClick={() => navigate("/home")} className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded-lg">
             Home
           </button>
@@ -48,8 +48,8 @@ const Header = () => {
             Collection
           </button>
 
-          <button onClick={() => navigate("/art")} className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded-lg">
-            Art
+          <button onClick={() => navigate("/contact")} className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded-lg">
+            Contact
           </button>
         </div>
       )}
