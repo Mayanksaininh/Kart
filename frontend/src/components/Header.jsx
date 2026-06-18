@@ -44,8 +44,8 @@ const Header = () => {
             Home
           </button>
 
-          <button onClick={() => navigate("/craft")} className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded-lg">
-            Craft
+          <button onClick={() => navigate("/collection")} className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded-lg">
+            Collection
           </button>
 
           <button onClick={() => navigate("/art")} className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded-lg">

@@ -1,11 +1,11 @@
 import React from "react";
 
-const Craft = () =>{
+const Collection = () =>{
     return (
       <div className="flex justify-center items-center w-full mt-2 bg-grey-900">
             <input
                type="text"
-                     placeholder="Search Craft products..."
+                     placeholder="Search..."
                      className="px-3 py-1 rounded-lg outline-none bg-white"
              />
              
@@ -16,4 +16,4 @@ const Craft = () =>{
     )
 }
 
-export default Craft        
+export default Collection      

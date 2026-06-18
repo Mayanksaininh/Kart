@@ -6,7 +6,7 @@ import Login from "./Login";
 import Header from "./Header";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
-import Craft from "./Craft";
+import Collection from "./Collection";
 import Art from "./Art";
 
 const Body = () => {
@@ -36,10 +36,10 @@ const Body = () => {
         />
 
         <Route
-          path="/craft"
+          path="/collection"
           element={
             <PrivateRoute>
-              <Craft />
+              <Collection />
             </PrivateRoute>
           }
         />

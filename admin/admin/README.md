@@ -14,23 +14,3 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-
--Setup frontend project ,
--Creates some componenets ,
--Creates body and header componenets ,
--Adding logo ,
--Create login page ,
--Adding Google (SignUp with Google) Button ,
--Craete Registration page , and also user useNavigate package from react-router-dom ,
--Create Context API ,
--Install firebase ,
--Add google sign in with pop up ,
--Create SignUp and SignIn with Google ,
--Creating Get Current User API ,
--Makes routes protected with useCallback react hook ,
--Fix protected buttons ,
--Create LogOut API ,
--Starts creating home page ,
--Create Hero component ,
--Create Our Policy component and render it on Home ,
--Now start creating Admin ,
