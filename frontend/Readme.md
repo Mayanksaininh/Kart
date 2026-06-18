@@ -34,3 +34,4 @@ If you are developing a production application, we recommend using TypeScript wi
 -Create Hero component ,
 -Create Our Policy component and render it on Home ,
 -Now start creating Admin ,
+-Add server : {port : number } at vite.congif.js ,

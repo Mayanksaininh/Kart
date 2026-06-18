@@ -62,7 +62,7 @@ const Header = () => {
 
 
        {userData && userData._id && (
-         <div className="p-2 flex items-center gap-1 relative">
+         <div className="p-2 flex items-center gap-0 relative">
            <div className="w-9 h-9 flex items-center justify-center rounded-full bg-gray-600 text-white font-semibold text-sm uppercase cursor-pointer" onClick={() => setShowProfile(prev => !prev)}>
               {userData?.name?.[0] || "U"}
            </div>
