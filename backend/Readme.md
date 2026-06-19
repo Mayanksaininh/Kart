@@ -13,3 +13,5 @@
 -Creating Get Current User API ,
 -Add Admin url in origin at index.js file ,
 -Create Admin Login API ,
+-Create controller for admin ,
+-Create route for admin ,
