@@ -117,15 +117,15 @@ export const adminlogin = async (req,res) =>{
             return res.status(401).json({ message: "Invalid admin credentials" });
         }
 
-        {
+        
             const token = await genToken1(email)
-        res.cookie("token" , token,{
+            res.cookie("token" , token,{
             httpOnly: true,
             secure: false,
             sameSite : "lax",
             maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
         })
-        }
+        
           
         return res.status(200).json({message: "Admin login success", token})
 

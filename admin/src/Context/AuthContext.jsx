@@ -4,7 +4,7 @@ import { createContext } from "react";
 
 
 
-export const authDataContext = createContext()
+export const AuthDataContext = createContext()
 
 export const AuthContext = ({children}) => {
 
@@ -16,9 +16,9 @@ export const AuthContext = ({children}) => {
 
     return(
         <div>
-            <authDataContext.Provider value = {value}>
+            <AuthDataContext.Provider value = {value}>
              {children}
-            </authDataContext.Provider>
+            </AuthDataContext.Provider>
         </div>
     )
 }
