@@ -12,3 +12,4 @@
 -Create Authentication Middleware ,
 -Creating Get Current User API ,
 -Add Admin url in origin at index.js file ,
+-Create Admin Login API ,
