@@ -3,14 +3,15 @@ import React from "react";
 const Login = () =>{
     return (
         <>
-        <div className="bg-black/50 p-6 rounded-xl shadow-md w-full max-w-md mx-auto mt-8 px-6 pt-8">
+        <div className="bg-black/50 p-6 rounded-xl shadow-md w-full max-w-md mx-auto mt-22 px-6 pt-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
-            alt="Your Company"
+            alt="Logo"
             src="https://static.vecteezy.com/system/resources/thumbnails/026/956/862/small/shopping-cart-basket-png.png"
             className="mx-auto h-10 w-auto"
           />
-          <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-white">Sign in to your account</h2>
+          <h2 className="mt-2 text-center text-2xl/9 font-bold tracking-tight text-white">Sign in to your account</h2>
+          <h3 className="mt-2 text-center text-xl text-white">Welcome to Kart, For Admin Account</h3>
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">

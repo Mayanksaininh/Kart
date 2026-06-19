@@ -18,3 +18,5 @@ If you are developing a production application, we recommend using TypeScript wi
 -Start creating Project ,
 -Provide Different Port number to Admin Panel ,
 -Install tailwind CSS ,
+-Create component folder in it and create components ,
+-Create AuthContext ,
