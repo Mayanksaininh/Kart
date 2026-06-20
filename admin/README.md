@@ -20,3 +20,4 @@ If you are developing a production application, we recommend using TypeScript wi
 -Install tailwind CSS ,
 -Create component folder in it and create components ,
 -Create AuthContext ,
+-Create Private and public route ,
