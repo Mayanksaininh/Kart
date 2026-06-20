@@ -2,11 +2,12 @@ import React ,{ useContext } from "react";
 import { useState } from "react";
 import axios from "axios"
 import {AuthDataContext} from "../Context/AuthContext"
-import { useNavigate } from "react-router-dom";
+import { AdminDataContext } from "../Context/AdminContext";
+
 
 const Login = () =>{
 
-const navigate = useNavigate();
+const { setadminData } = useContext(AdminDataContext);
   
       const {ServerUrl}  = useContext(AuthDataContext)
   const[email,setemail] = useState("")
@@ -18,9 +19,10 @@ const navigate = useNavigate();
       const result = await axios.post(ServerUrl + "/api/auth/adminlogin" , { email,password},
         {withCredentials : true})
         console.log(result);
-          if (result.data) {
-      navigate("/list");
-    }
+        if (result.data) {
+         setadminData(result.data); // ✅ important
+        }
+     
     } catch (error) {
        console.log(error);
     }
