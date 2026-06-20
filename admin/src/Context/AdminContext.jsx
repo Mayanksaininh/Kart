@@ -9,6 +9,7 @@ export const AdminDataContext = createContext()
 export const AdminContextProvider = ({children}) => {
 
     let[adminData , setadminData] = useState(null)
+    let [loading, setloading] = useState(true);
 
     let ServerUrl = "http://localhost:8000"
 
@@ -21,6 +22,9 @@ export const AdminContextProvider = ({children}) => {
             console.log(error);
             setadminData(null)
         }
+        finally {
+        setloading(false); // ✅ important
+  }
     }
 
     useEffect(() =>{
@@ -28,7 +32,7 @@ export const AdminContextProvider = ({children}) => {
     } , [] )
    
     let value = {
-        adminData,setadminData,getAdmin
+        adminData,setadminData, loading
     }
 
     return(

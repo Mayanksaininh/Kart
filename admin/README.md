@@ -21,3 +21,4 @@ If you are developing a production application, we recommend using TypeScript wi
 -Create component folder in it and create components ,
 -Create AuthContext ,
 -Create Private and public route ,
+-Create logout for admin ,

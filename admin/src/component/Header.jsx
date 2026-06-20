@@ -1,4 +1,5 @@
 import React from "react";
+import LogOut from "./Logout";
 
 const Header = () =>{
     return (
@@ -9,6 +10,7 @@ const Header = () =>{
                     alt="Logo" />
                     <h1 className="text-white text-xl md:text-3xl font-semibold">Kart-Admin</h1>
                   </div>
+            <LogOut/>
         </div>
     )
 }
