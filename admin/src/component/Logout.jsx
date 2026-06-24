@@ -1,14 +1,20 @@
 import axios from "axios";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AdminDataContext } from "../Context/AdminContext"; // path check karo
 
 const LogOut = () =>{
+
+    const { setadminData } = useContext(AdminDataContext);
 
     const  navigate  = useNavigate()
     const SignOut = async() =>{
         try {
             const result = await axios.get("http://localhost:8000/api/auth/logOut" , {withCredentials : true })
             console.log(result.data);
+
+            setadminData(null); // 🔥 YAHI MISSING THA
              navigate ("/")
         } catch (error) {
             console.log(error);

@@ -22,3 +22,4 @@ If you are developing a production application, we recommend using TypeScript wi
 -Create AuthContext ,
 -Create Private and public route ,
 -Create logout for admin ,
+-Add Logout API for admin ,
