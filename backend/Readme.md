@@ -15,3 +15,5 @@
 -Create Admin Login API ,
 -Create controller for admin ,
 -Create route for admin ,
+-Setup Cloudinary and Multer ,
+-Create Model for Product ,
