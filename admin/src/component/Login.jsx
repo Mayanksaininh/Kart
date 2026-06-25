@@ -3,9 +3,12 @@ import { useState } from "react";
 import axios from "axios"
 import {AuthDataContext} from "../Context/AuthContext"
 import { AdminDataContext } from "../Context/AdminContext";
+import { useNavigate } from "react-router-dom";
 
 
 const Login = () =>{
+
+const navigate = useNavigate()
 
 const { setadminData } = useContext(AdminDataContext);
   
@@ -21,6 +24,7 @@ const { setadminData } = useContext(AdminDataContext);
         console.log(result);
         if (result.data) {
          setadminData(result.data); // ✅ important
+         navigate("/list"); 
         }
      
     } catch (error) {

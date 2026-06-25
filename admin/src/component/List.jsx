@@ -1,10 +1,12 @@
 import React from "react";
+import SideBar from "./SideBar";
 
 
 const List = () =>{
     return(
         <div>
-            List
+            <SideBar/>
+            
         </div>
     )
 }
