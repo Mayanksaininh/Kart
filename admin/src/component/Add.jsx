@@ -73,7 +73,7 @@ const Add = () => {
               <label className="block text-sm font-medium text-gray-100">
                 Category
               </label>
-
+           
               <input
                 type="text"
                 className="mt-2 w-full rounded-md bg-white/5 px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
