@@ -1,5 +1,5 @@
-import uploadOnCloudinary from "../config/cloudinary";
-import Product from "../models/productModel";
+import uploadOnCloudinary from "../config/cloudinary.js";
+import Product from "../models/productModel.js";
 
 
 export const addproduct = async (req,res) =>{
