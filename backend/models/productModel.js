@@ -41,10 +41,6 @@ const productSchema = new mongoose.Schema({
         required : true
     } ,
 
-    date : {
-        type : Number ,
-        required : true
-    } 
 } , {timestamps : true})
 
 const Product = mongoose.model("Product" , productSchema)

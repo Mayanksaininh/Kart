@@ -17,3 +17,4 @@
 -Create route for admin ,
 -Setup Cloudinary and Multer ,
 -Create Model for Product ,
+-Create API for add product ,

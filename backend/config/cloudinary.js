@@ -1,7 +1,7 @@
 import { v2 as cloudinary } from 'cloudinary'; 
 import fs from "fs"
 
-const uploadCloudinary = async(filePath) => {
+const uploadOnCloudinary = async(filePath) => {
 
      // Configuration
      cloudinary.config({ 
@@ -29,4 +29,4 @@ const uploadCloudinary = async(filePath) => {
    
 }
 
-export default uploadCloudinary
+export default uploadOnCloudinary
