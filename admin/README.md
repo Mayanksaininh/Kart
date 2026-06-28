@@ -24,3 +24,4 @@ If you are developing a production application, we recommend using TypeScript wi
 -Create logout for admin ,
 -Add Logout API for admin ,
 -Create SideBar ,
+-Create Add product component ,
