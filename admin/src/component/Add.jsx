@@ -35,6 +35,7 @@ const Add = () => {
 
 
         const result = await axios.post(ServerUrl + "/api/product/addproduct" , formData , {withCredentials : true})
+        console.log(result.data);
         if(result.data){
           setname("")
           setdescription("")
@@ -107,7 +108,7 @@ const Add = () => {
               <input
                 type="number"
                 className="mt-2 w-full rounded-md bg-white/5 px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                placeholder="Enter Price" onChange={(e) => setprice(e.target.value)} value={price} required
+                placeholder="₹ 2000" onChange={(e) => setprice(e.target.value)} value={price} required
               />
             </div>
 
