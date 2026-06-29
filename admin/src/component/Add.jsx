@@ -4,10 +4,11 @@ import { useState } from "react";
 
 const Add = () => {
 
-    const [image1 , setimage1] = useState()
-    const [image2 , setimage2] = useState()
-    const [image3 , setimage3] = useState()
-    const [image4 , setimage4] = useState()
+    const [image1 , setimage1] = useState(false)
+    const [image2 , setimage2] = useState(false)
+    const [image3 , setimage3] = useState(false)
+    const [image4 , setimage4] = useState(false)
+    const [category, setCategory] = useState("Craft");
 
   return (
     <div className="flex">
@@ -71,15 +72,18 @@ const Add = () => {
 
              <div>
               <label className="block text-sm font-medium text-gray-100">
-                Category
+                 Category
               </label>
-           
-              <input
-                type="text"
-                className="mt-2 w-full rounded-md bg-white/5 px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                placeholder="Enter Category"
-              />
-            </div>
+
+            <select
+                  value={category}
+                  onChange={(e) => setCategory(e.target.value)}
+                  className="mt-2 w-full rounded-md bg-white/5 px-3 py-2 text-black"
+           >
+            <option value="Craft">Craft</option>
+            <option value="Art">Art</option>
+           </select>
+          </div>
 
 
             <div className="flex gap-3 flex-wrap">
