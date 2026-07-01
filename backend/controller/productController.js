@@ -30,3 +30,14 @@ export const addproduct = async (req,res) =>{
         console.log("AddProduct error");
     }
 } 
+
+export const listproduct = async(req,res) =>{
+    try {
+        const product = await Product.find({})
+        return res.status(200).json(product)
+    } 
+    
+    catch (error) {
+        console.log("Listing Product error");
+    }
+}

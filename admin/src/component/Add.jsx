@@ -35,7 +35,7 @@ const Add = () => {
 
 
         const result = await axios.post(ServerUrl + "/api/product/addproduct" , formData , {withCredentials : true})
-        console.log(result.data);
+        // console.log(result.data);
         if(result.data){
           setname("")
           setdescription("")
