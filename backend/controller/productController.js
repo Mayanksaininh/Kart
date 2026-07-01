@@ -41,3 +41,16 @@ export const listproduct = async(req,res) =>{
         console.log("Listing Product error");
     }
 }
+
+export const removeproduct = async(req,res) =>{
+    try {
+        let {id} = req.param
+        const removeproduct = await Product.findByIdAndDelete(id)
+        return res.status(200).json(product)
+    } 
+    
+    
+    catch (error) {
+        console.log("Remove Product Error");
+    }
+}

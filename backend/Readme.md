@@ -19,3 +19,4 @@
 -Create Model for Product ,
 -Create API for add product ,
 -Create controller for list product ,
+-Create controller for Remove product ,
