@@ -70,6 +70,13 @@ useEffect(() => {
             </div>
 
         </div>
+      <div className="w-[10%] h-full flex items-center justify-center text-2xl text-white">
+       <span className="flex items-center justify-center w-8 h-8 rounded-md hover:bg-red-300 hover:text-black cursor-pointer transition">
+              X
+       </span>
+        </div>
+
+
       </div>
     );
   })
