@@ -12,12 +12,26 @@ const List = () =>{
 
     const fetchList = async()=>{
         try {
-            const result = await axios.get(ServerUrl + "/api/product/listproduct" , {withCredentials : true})
+            const result = await axios.get(ServerUrl + "/api/product/listproduct" , {} , {withCredentials : true})
             setlist(result.data)
             console.log(result.data);
         } catch (error) {
-            console.log("Error in fetching List");
+            console.log("Error in fetching List" );
         }
+    }
+
+    const removelist = async(id) =>{
+      try {
+        const result = await axios.post(`${ServerUrl}/api/product/removeproduct/${id}` , {withCredentials : true})
+        if(result.data){
+          fetchList()
+        }
+        else{
+          console.log("Failed to remove product");
+        }
+      } catch (error) {
+        console.log("Remove Product Error");
+      }
     }
 
 
@@ -71,7 +85,7 @@ useEffect(() => {
 
         </div>
       <div className="w-[10%] h-full flex items-center justify-center text-2xl text-white">
-       <span className="flex items-center justify-center w-8 h-8 rounded-md hover:bg-red-300 hover:text-black cursor-pointer transition">
+       <span className="flex items-center justify-center w-8 h-8 rounded-md hover:bg-red-300 hover:text-black cursor-pointer transition" onClick={() => removelist(item._id)}>
               X
        </span>
         </div>

@@ -44,9 +44,9 @@ export const listproduct = async(req,res) =>{
 
 export const removeproduct = async(req,res) =>{
     try {
-        let {id} = req.param
+        let {id} = req.params
         const removeproduct = await Product.findByIdAndDelete(id)
-        return res.status(200).json(product)
+        return res.status(200).json(removeproduct)
     } 
     
     
