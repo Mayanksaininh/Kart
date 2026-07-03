@@ -33,7 +33,7 @@ const OurPolicy = () => {
       </h1>
 
       <p className="text-gray-300 text-lg leading-relaxed text-center max-w-3xl mx-auto mt-6">
-        At [Our Brand], we are committed to delivering a secure, transparent, and customer-first shopping experience.
+        At kart, we are committed to delivering a secure, transparent, and customer-first shopping experience.
         <span className="bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text font-semibold">
           {" "}From secure payments to hassle-free returns
         </span>, our policies are built around trust, clarity, and your peace of mind.

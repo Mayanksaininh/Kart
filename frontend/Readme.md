@@ -35,3 +35,4 @@ If you are developing a production application, we recommend using TypeScript wi
 -Create Our Policy component and render it on Home ,
 -Now start creating Admin ,
 -Add server : {port : number } at vite.congif.js ,
+-Create Context for Shop ,
