@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Collection = () =>{
+
+    const [showfilter , setshowfilter] = useState(false)
+
     return (
       <div className="flex justify-center items-center w-full mt-2 bg-grey-900">
             <input
@@ -13,11 +16,15 @@ const Collection = () =>{
                       Search
          </button>
         <div className="w-full md:w-[30vw] lg:w-[20vw] min-h-screen p-[20px] border-r text-[#aaf5fa] fixed top-16 left-0 z-40">
-             <p className="text-[25px] font-semibold flex gap-[5px] items-center justify-start ">
+             <p className="text-[25px] font-semibold flex gap-[5px] items-center justify-start cursor-pointer" onClick={() => setshowfilter(prev =>! prev)}>
                 FILTER
              </p>
 
-            <div className="border border-[#dedcdc] pl-3 py-2 mt-4 rounded-md bg-slate-600 w-fit">
+           <div
+                className={`border border-[#dedcdc] pl-3 py-2 mt-4 rounded-md bg-slate-600 w-fit ${
+                showfilter ? "block" : "hidden md:block"
+                 }`}
+                    >
                  <p className="text-[15px] text-[#f8fafa] mb-2">
                      CATEGORIES
                 </p>
