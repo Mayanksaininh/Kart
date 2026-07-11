@@ -36,5 +36,7 @@ If you are developing a production application, we recommend using TypeScript wi
 -Now start creating Admin ,
 -Add server : {port : number } at vite.congif.js ,
 -Create Context for Shop ,
--Start Creating Collection page ,
+-Start Creating Collection component ,
 -Createing Side bar ,
+-Create card component ,
+-Create some features in collection component ,
