@@ -40,8 +40,8 @@ const Contact = () =>{
             <h2 className="text-white text-xl font-semibold mb-5">FAQs</h2>
             <div className="flex flex-col gap-4">
               {[
-                { q: "How long does delivery take?", a: "Standard delivery takes 3–7 business days. Express delivery is available at checkout." },
-                { q: "How do I return a product?", a: "You can initiate a return within 7 days of delivery from your orders page." },
+                { q: "How long does delivery take?", a: "Standard delivery takes 3–7 business days." },
+                { q: "How do I return a product?", a: "You can initiate a return within 7 days of delivery by contacting us on WhatsApp." },
                 { q: "Is my payment information secure?", a: "Yes, all transactions are 256-bit SSL encrypted through trusted payment gateways." },
                 
               ].map(({ q, a }) => (
