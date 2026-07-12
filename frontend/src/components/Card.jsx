@@ -6,7 +6,7 @@ const Card = ({ name, price, image }) => {
       <img
         src={image}
         alt={name}
-        className="w-full h-[150px] object-cover rounded-md"
+        className="w-full h-[220px] object-cover rounded-md"
       />
       <h2 className="text-lg font-semibold mt-2">{name}</h2>
       <p className="text-sm text-gray-300">₹{price}</p>

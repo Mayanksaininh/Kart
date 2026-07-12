@@ -40,3 +40,4 @@ If you are developing a production application, we recommend using TypeScript wi
 -Createing Side bar ,
 -Create card component ,
 -Create some features in collection component ,
+-Start Creating contact component,
