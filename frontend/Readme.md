@@ -41,3 +41,4 @@ If you are developing a production application, we recommend using TypeScript wi
 -Create card component ,
 -Create some features in collection component ,
 -Start Creating contact component,
+-Start Creating productdetail component ,

@@ -8,6 +8,8 @@ import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
 import Collection from "./Collection";
 import Contact from "./Contact";
+import ProductDetail from "./ProductDetail";
+
 
 const Body = () => {
   return (
@@ -49,6 +51,15 @@ const Body = () => {
           element={
             <PrivateRoute>
               <Contact />
+            </PrivateRoute>
+          }
+        />
+
+         <Route
+          path="/productdetail/:productId"
+          element={
+            <PrivateRoute>
+              <ProductDetail/>
             </PrivateRoute>
           }
         />
