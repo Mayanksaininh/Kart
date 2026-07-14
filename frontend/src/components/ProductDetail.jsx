@@ -84,6 +84,8 @@ const ProductDetail = () =>{
 
       <div className="mt-4 text-sm text-gray-300 flex flex-col gap-1">
             <p>⚡ Hurry! This product is selling fast</p>
+            <p>✔ Premium Quality Material</p>
+            <p>✔ Lightweight & Durable</p>
             <p>🔄 7-day easy return & exchange</p>
             <p>🔒 100% Secure Payments</p>
             <p>✔ Trusted by many customers</p>
