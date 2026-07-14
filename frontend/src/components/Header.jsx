@@ -29,74 +29,86 @@ const Header = () => {
   }
  
 
-  return (
-    <div className="w-full bg-gradient-to-b from-black/100 to-black/20 h-16 flex items-center justify-between px-0">
-      
-      <div className="flex items-center">
-        <img className="h-10 md:h-12 w-auto" src={logo} alt="logo" />
-        <h1 className="text-white text-xl md:text-3xl font-semibold">Kart</h1>
-      </div>
+ return (
+  <div className="w-full bg-gray-900 min-h-16 flex flex-wrap items-center justify-between px-4 md:px-8 py-2">
 
-      {/* ✅ Only show after login */}
-      {userData &&  userData._id && (
-        <div className="absolute left-1/2 transform -translate-x-1/2 flex gap-2">
-          <button onClick={() => navigate("/home")} className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded-lg">
-            Home
-          </button>
-
-          <button onClick={() => navigate("/collection")} className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded-lg">
-            Collection
-          </button>
-
-          <button onClick={() => navigate("/contact")} className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded-lg">
-            Contact
-          </button>
-        </div>
-      )}
-     {userData && userData._id && (
-      <div className="flex items-center ml-auto gap-0 pr-2">
-    
-        {/* <div className="p-2">
-            <MdSearch className="text-white text-2xl" />
-        </div> */}
-
-
-       {userData && userData._id && (
-         <div className="p-2 flex items-center gap-0 relative">
-           <div className="w-9 h-9 flex items-center justify-center rounded-full bg-gray-600 text-white font-semibold text-sm uppercase cursor-pointer" onClick={() => setShowProfile(prev => !prev)}>
-              {userData?.name?.[0] || "U"}
-           </div>
-           
-      {ShowProfile && (
-              <div className="absolute w-[200px] bg-white top-[110%] right-[4%] border border-[#e0e0e0] rounded-xl z-10 shadow-md overflow-hidden">
-                 <ul className="list-none m-0 py-1">
-                       <li className="flex items-center gap-1 px-2 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-100 transition-colors">
-                        <span>📦</span> My orders
-                       </li>
-                    <ul className="h-px bg-gray-100 mx-3" />
-                       <li className="flex items-center gap-1 px-2 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-100 transition-colors">
-                       <span>🛒</span> Cart
-                       </li>
-                        <li className="flex items-center gap-1 px-2 py-2 text-sm text-red-500 cursor-pointer hover:bg-gray-100 transition-colors" onClick={handleLogOut}>
-                       <span>🚪</span> Log Out
-                       </li>
-                   </ul>
-                   
-              </div>
-)}
-          
-          </div>
-        )}
-
-        <div className="p-1">
-          <BsCart2 className="text-white text-2xl"/>
-          <p className="absolute w-[18px] h-[18px] md:flex justify-center bg-red-500 px-[5px] py-[5py] text-white items-center rounded-full text-[9px] top-[10px] right-[23px] hidden cursor-pointer">1</p>
-        </div>
-
-      </div>
-)}
+    {/* LEFT: LOGO */}
+    <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate("/")}>
+      <img className="h-10 md:h-12" src={logo} alt="logo" />
+      <h1 className="text-white text-xl md:text-2xl font-semibold">Kart</h1>
     </div>
-  );
+
+    {/* CENTER MENU (NOW ALWAYS VISIBLE) */}
+    {userData && userData._id && (
+      <div className="w-full md:w-auto flex justify-center md:justify-start order-3 md:order-none mt-2 md:mt-0">
+      <div className="flex gap-3 sm:gap-4 md:gap-6 text-white font-medium flex-wrap justify-center">
+
+   <button 
+    onClick={() => navigate("/home")} 
+    className="px-3 py-1 text-sm md:text-base hover:text-gray-300"
+  >
+    Home
+  </button>
+
+  <button 
+    onClick={() => navigate("/collection")} 
+    className="px-3 py-1 text-sm md:text-base hover:text-gray-300"
+  >
+    Collection
+  </button>
+
+  <button 
+    onClick={() => navigate("/contact")} 
+    className="px-3 py-1 text-sm md:text-base hover:text-gray-300"
+  >
+    Contact
+  </button>
+
+</div>
+      </div>
+    )}
+
+    {/* RIGHT SIDE */}
+    {userData && userData._id && (
+      <div className="flex items-center gap-4 relative">
+
+        {/* PROFILE */}
+        <div className="relative">
+          <div
+            className="w-8 h-8 md:w-9 md:h-9 flex items-center justify-center rounded-full bg-gray-600 text-white font-semibold cursor-pointer"
+            onClick={() => setShowProfile(prev => !prev)}
+          >
+            {userData?.name?.[0] || "U"}
+          </div>
+
+          {ShowProfile && (
+            <div className="absolute right-0 mt-2 w-[200px] bg-white rounded-xl shadow-md overflow-hidden z-20">
+              <ul className="py-1 text-sm text-gray-700">
+                <li className="px-3 py-2 hover:bg-gray-100 cursor-pointer">📦 My Orders</li>
+                <li
+                  className="px-3 py-2 text-red-500 hover:bg-gray-100 cursor-pointer"
+                  onClick={handleLogOut}
+                >
+                  🚪 Log Out
+                </li>
+              </ul>
+            </div>
+          )}
+        </div>
+
+        {/* CART */}
+        <div className="relative cursor-pointer">
+          <BsCart2 className="text-white text-xl md:text-2xl" />
+          <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] w-[16px] h-[16px] md:w-[18px] md:h-[18px] flex items-center justify-center rounded-full">
+            1
+          </span>
+        </div>
+
+      </div>
+    )}
+
+  </div>
+);
 };
 
 export default Header;
