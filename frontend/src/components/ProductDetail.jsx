@@ -72,6 +72,10 @@ const ProductDetail = () =>{
       <p className="text-[20px] md:text-[26px] font-semibold">
         {currency} {productData.price}
       </p>
+
+      <p className="text-[16px] md:text-[18px] text-gray-300 leading-relaxed">
+            {productData.description}
+      </p>
     </div>
 
   </div>

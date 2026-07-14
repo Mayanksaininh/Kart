@@ -13,7 +13,8 @@ const Contact = () =>{
           We're Here to Help
         </h1>
         <p className="text-gray-400 text-base max-w-xl mx-auto leading-relaxed">
-          Have a question about your order or need assistance? Fill out the form below and our team will get back to you within 24 hours.
+         If you have any specific requirements or need quick assistance, or if you’re facing any order-related issue, feel free to connect with our team on WhatsApp or email us. We’re here to help!
+
         </p>
       </div>
 
