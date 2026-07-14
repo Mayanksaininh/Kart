@@ -33,40 +33,51 @@ const ProductDetail = () =>{
     fetchproductData();
 }, [productId, product]);
 
-    return productData ?(
-        <div>
-            <div className="lg:w-[50vh] md:w-[90vw] lg:h-[90vh] h-[50vh] mt-[70px] flex items-center justify-center md:gap-[10px] gap-[30px] flex-col-reverse lg:flex-row">
-                <div className="lg:w-[20%] md:w-[80%] h-[10%] lg:h-[80%] flex items-center justify-center gap-[50px] lg:gap-[20px] lg:flex-col flex-wrap">
-                    <div className="md:w-[100px] w-[50px] h-[50px] md:h-[110px] bg-slate-300 border-[1px] border-[#80808049] rounded-md">
-                        <img src={image1} alt = "" className="w-[100%] h-[100%] cursor-pointer rounded-md" onClick={() => setimage(image1)}></img>
-                    </div>
+    return productData ? (
+  <div className="w-full min-h-screen mt-[70px] flex flex-col lg:flex-row items-start justify-start gap-8 px-4 lg:px-10">
 
-                     <div className="md:w-[100px] w-[50px] h-[50px] md:h-[110px] bg-slate-300 border-[1px] border-[#80808049] rounded-md">
-                        <img src={image2} alt = "" className="w-[100%] h-[100%] cursor-pointer rounded-md"  onClick={() => setimage(image2)}></img>
-                    </div>
+    {/* LEFT: THUMBNAILS */}
+    <div className="flex lg:flex-col flex-row gap-3 order-2 lg:order-1">
+      {[image1, image2, image3, image4].map((img, i) => (
+        img && (
+          <div key={i} className="w-[60px] h-[60px] md:w-[90px] md:h-[100px] border rounded-md overflow-hidden">
+            <img
+              src={img}
+              alt=""
+              className="w-full h-full object-cover cursor-pointer hover:scale-105 transition"
+              onClick={() => setimage(img)}
+            />
+          </div>
+        )
+      ))}
+    </div>
 
-                     <div className="md:w-[100px] w-[50px] h-[50px] md:h-[110px] bg-slate-300 border-[1px] border-[#80808049] rounded-md">
-                        <img src={image3} alt = "" className="w-[100%] h-[100%] cursor-pointer rounded-md"  onClick={() => setimage(image3)}></img>
-                    </div>
+    {/* CENTER: MAIN IMAGE */}
+    <div className="w-full sm:w-[80%] md:w-[60%] lg:w-[35%] bg-white rounded-lg flex items-center justify-center p-4 shadow-md order-1 lg:order-2">
+      <img
+        src={image}
+        alt=""
+        className="max-h-[350px] md:max-h-[420px] w-auto object-contain rounded-md"
+      />
+    </div>
 
-                     <div className="md:w-[100px] w-[50px] h-[50px] md:h-[110px] bg-slate-300 border-[1px] border-[#80808049] rounded-md">
-                        <img src={image4} alt = "" className="w-[100%] h-[100%] cursor-pointer rounded-md"  onClick={() => setimage(image4)}></img>
-                    </div>
+    {/* RIGHT: PRODUCT DETAILS */}
+    <div className="w-full lg:w-[30%] text-white flex flex-col gap-3 order-3">
+      <h1 className="text-[24px] md:text-[32px] lg:text-[36px] font-semibold">
+        {productData.name.toUpperCase()}
+      </h1>
 
-                    <div className="lg:w-[60%] w-[80%] lg:h-[78%] h-[70%] border-[1px] border-[#80808049] rounded-md overflow-hidden">
-                        <img src={image} alt = ""></img>
-                    </div>
-                </div>
-            </div>
-            <div className="lg:w-[50vw] w-[100vw] lg:h-[75vh] h-[40vh] lg:mt-[80px] flex items-start justify-start flex-col py-[20px] px-[30px] md:pb-[20px] lg:pl-[0px] lg:px-[0px] lg:py-[0px] gap-[10px]">
-                <h1 className="text-[40px] font-semibold text-[aliceblue]">{productData.name.toUpperCase()}</h1>
-                <div className = "flex items-center gap-1">
-                    ⭐⭐⭐⭐⭐
-                </div>
-                <p className="text-[30px] font-semibold pl-[5px] text-white">{currency} {productData.price}</p>
-            </div>
-        </div>
-    ) : <div className="opacity-0"></div>
+      <div>⭐⭐⭐⭐⭐</div>
+
+      <p className="text-[20px] md:text-[26px] font-semibold">
+        {currency} {productData.price}
+      </p>
+    </div>
+
+  </div>
+) : (
+  <div className="opacity-0"></div>
+);
 }
 
 export default ProductDetail
