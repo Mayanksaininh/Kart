@@ -76,8 +76,21 @@ const ProductDetail = () =>{
       <p className="text-[16px] md:text-[18px] text-gray-300 leading-relaxed">
             {productData.description}
       </p>
-    </div>
 
+      <button className="text-[16px] cursor-pointer bg-[#495b61c9] py-[10px] px-[20px] rounded-2xl mt-[10px] border border-[#80808049] text-white shadow-md shadow-black 
+      hover:bg-[#5f737a] hover:shadow-lg hover:scale-105 transition-all duration-200 active:bg-slate-300">
+             Add to Cart
+      </button>
+
+      <div className="mt-4 text-sm text-gray-300 flex flex-col gap-1">
+            <p>⚡ Hurry! This product is selling fast</p>
+            <p>🔄 7-day easy return & exchange</p>
+            <p>🔒 100% Secure Payments</p>
+            <p>✔ Trusted by many customers</p>
+
+      </div>
+
+    </div>
   </div>
 ) : (
   <div className="opacity-0"></div>

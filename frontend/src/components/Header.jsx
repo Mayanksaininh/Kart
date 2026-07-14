@@ -45,21 +45,21 @@ const Header = () => {
 
    <button 
     onClick={() => navigate("/home")} 
-    className="px-3 py-1 text-sm md:text-base hover:text-gray-300"
+    className="px-3 py-1 text-sm md:text-base hover:text-gray-100 cursor-pointer"
   >
     Home
   </button>
 
   <button 
     onClick={() => navigate("/collection")} 
-    className="px-3 py-1 text-sm md:text-base hover:text-gray-300"
+    className="px-3 py-1 text-sm md:text-base hover:text-gray-100 cursor-pointer"
   >
     Collection
   </button>
 
   <button 
     onClick={() => navigate("/contact")} 
-    className="px-3 py-1 text-sm md:text-base hover:text-gray-300"
+    className="px-3 py-1 text-sm md:text-base hover:text-gray-100 cursor-pointer"
   >
     Contact
   </button>
