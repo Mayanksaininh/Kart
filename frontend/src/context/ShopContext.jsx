@@ -9,7 +9,10 @@ function ShopContext ({children}) {
     
     const [product,setproduct] = useState([])
     const {ServerUrl} = useContext(AuthDataContext)
-    const [cartItem , setcartItem] = useState({})
+    const [cartItem, setcartItem] = useState(() => {
+        const savedCart = localStorage.getItem("cart");
+         return savedCart ? JSON.parse(savedCart) : {};
+        });
     let currency = '₹'
     let delivery_fee = 59
 
@@ -30,6 +33,7 @@ function ShopContext ({children}) {
             }
 
          setcartItem(cartData);
+         console.log(cartData);
     };
 
     const getcartcount = () => {
@@ -39,10 +43,13 @@ function ShopContext ({children}) {
              if (cartItem[item] > 0) {
                totalCount += cartItem[item];
             }
-         }
-
+    }
     return totalCount;
     };
+
+    useEffect(() => {
+        localStorage.setItem("cart", JSON.stringify(cartItem));
+    }, [cartItem]);
 
     useEffect(() => {
         getproduct()
