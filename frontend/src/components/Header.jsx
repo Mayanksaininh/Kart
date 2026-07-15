@@ -7,6 +7,7 @@ import { BsCart2 } from "react-icons/bs";
 import { useState } from "react";
 import { AuthDataContext } from "../context/AuthContext";
 import axios from "axios";
+import { ShopDataContext } from "../context/ShopContext.jsx";
 
 
 
@@ -16,7 +17,8 @@ const Header = () => {
   let {ServerUrl} = useContext(AuthDataContext)
   const navigate = useNavigate();
   const [ShowProfile , setShowProfile] = useState(false)
-  
+  const {getcartcount} = useContext(ShopDataContext)
+
   const handleLogOut = async () =>{
     try {
       const result = await axios.get(ServerUrl + "/api/auth/logOut" , {withCredentials : true})
@@ -100,7 +102,7 @@ const Header = () => {
         <div className="relative cursor-pointer">
           <BsCart2 className="text-white text-xl md:text-2xl" />
           <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] w-[16px] h-[16px] md:w-[18px] md:h-[18px] flex items-center justify-center rounded-full">
-            1
+            {getcartcount()}
           </span>
         </div>
 

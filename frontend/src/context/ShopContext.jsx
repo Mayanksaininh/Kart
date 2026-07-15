@@ -22,17 +22,15 @@ function ShopContext ({children}) {
         }
     }
 
-    const addtoCart = async(itemid) =>{
-        const cartData = structuredClone(cartItem)    // clone the product
-       if(cartData[itemid]){
-            cartData[itemid] += 1   
-       }
-       else{
-        cartData[itemid] = 1
-       }
-       setcartItem(cartData)
-       console.log(cartData);
-    }
+        const addtoCart = (itemid) => {
+            const cartData = structuredClone(cartItem);
+
+             if (!cartData[itemid]) {
+                  cartData[itemid] = 1;
+            }
+
+         setcartItem(cartData);
+    };
 
     const getcartcount = () => {
          let totalCount = 0;
