@@ -9,6 +9,7 @@ function ShopContext ({children}) {
     
     const [product,setproduct] = useState([])
     const {ServerUrl} = useContext(AuthDataContext)
+    const [cartItem , setcartItem] = useState({})
     let currency = '₹'
     let delivery_fee = 59
 
@@ -21,13 +22,37 @@ function ShopContext ({children}) {
         }
     }
 
+    const addtoCart = async(itemid) =>{
+        const cartData = structuredClone(cartItem)    // clone the product
+       if(cartData[itemid]){
+            cartData[itemid] += 1   
+       }
+       else{
+        cartData[itemid] = 1
+       }
+       setcartItem(cartData)
+       console.log(cartData);
+    }
+
+    const getcartcount = () => {
+         let totalCount = 0;
+
+         for (const item in cartItem) {
+             if (cartItem[item] > 0) {
+               totalCount += cartItem[item];
+            }
+         }
+
+    return totalCount;
+    };
+
     useEffect(() => {
         getproduct()
     } ,[])
 
 
 const value = {
-    product , currency , delivery_fee , getproduct
+    product , currency , delivery_fee , getproduct , cartItem , addtoCart , getcartcount , setcartItem
 }
     return (
         

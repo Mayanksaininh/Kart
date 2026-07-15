@@ -4,7 +4,7 @@ import { ShopDataContext } from "../context/ShopContext";
 
 const ProductDetail = () =>{
     const {productId} = useParams()
-    const {product,currency} = useContext(ShopDataContext)
+    const {product,currency,addtoCart} = useContext(ShopDataContext)
     const [productData , setproductData] = useState(false)
     
     const [image, setimage] = useState("")
@@ -78,11 +78,12 @@ const ProductDetail = () =>{
       </p>
 
       <button className="text-[16px] cursor-pointer bg-[#495b61c9] py-[10px] px-[20px] rounded-2xl mt-[10px] border border-[#80808049] text-white shadow-md shadow-black 
-      hover:bg-[#5f737a] hover:shadow-lg hover:scale-105 transition-all duration-200 active:bg-slate-300">
+      hover:bg-[#5f737a] hover:shadow-lg hover:scale-105 transition-all duration-200 active:bg-slate-300" onClick={() => addtoCart(productData._id)}>
              Add to Cart
       </button>
 
       <div className="mt-4 text-sm text-gray-300 flex flex-col gap-1">
+            <p>✔ 100% Original Product</p>
             <p>⚡ Hurry! This product is selling fast</p>
             <p>✔ Premium Quality Material</p>
             <p>✔ Lightweight & Durable</p>
