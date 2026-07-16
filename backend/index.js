@@ -8,6 +8,7 @@ import authRoute from "./routes/authRoute.js";
 import cors from 'cors'
 import userRoutes from "./routes/userRoute.js";
 import productroute from "./routes/productRoute.js";
+import cartRoute from "./routes/cartRoute.js";
 
 const app = express()
 app.use(cors({
@@ -28,6 +29,7 @@ app.use(cookieParser())
 app.use("/api/auth" , authRoute)
 app.use("/api/user" , userRoutes)
 app.use("/api/product" , productroute)
+app.use("/api/cart" , cartRoute)
 
 const port = 8000
 

@@ -22,3 +22,4 @@
 -Create controller for Remove product ,
 -Create route for remove and List Product ,
 -Create controller for addtocart , updatecart , getusercart ,
+Create Routes for addtocart , updatecart , getusercart ,
