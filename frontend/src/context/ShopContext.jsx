@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { AuthDataContext } from "./AuthContext";
 import axios from "axios";
+import { userDataContext } from "./UserContext";
 
 export const ShopDataContext = createContext() 
 
@@ -9,6 +10,7 @@ function ShopContext ({children}) {
     
     const [product,setproduct] = useState([])
     const {ServerUrl} = useContext(AuthDataContext)
+    const { userData } = useContext(userDataContext)
     const [cartItem , setcartItem] = useState({})
     let currency = '₹'
     let delivery_fee = 59
@@ -22,16 +24,27 @@ function ShopContext ({children}) {
         }
     }
 
-        const addtoCart = (itemid) => {
+        const addtoCart = async (itemid) => {
             const cartData = structuredClone(cartItem);
 
-             if (!cartData[itemid]) {
-                  cartData[itemid] = 1;
-            }
+            if (!cartData[itemid]) {
+             cartData[itemid] = 1;
+             }
 
-         setcartItem(cartData);
-         console.log(cartData);
-    };
+              setcartItem(cartData);
+
+         if (userData) {
+        try {
+            const result = await axios.post(
+                ServerUrl + "/api/cart/add",
+                { itemid },
+                { withCredentials: true }
+            );
+        } catch (error) {
+            console.log(error);
+        }
+        }
+    }
 
     const getcartcount = () => {
          let totalCount = 0;
