@@ -13,6 +13,7 @@ const ProductDetail = () =>{
     const [image3, setimage3] = useState("")
     const [image4, setimage4] = useState("")  
 
+
     
     const fetchproductData = () => {
     if (!product || product.length === 0) return;

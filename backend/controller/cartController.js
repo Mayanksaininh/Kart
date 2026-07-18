@@ -1,16 +1,30 @@
 import User from "../models/userModel.js"
 
-export const addtoCart = async (id) => {
-  try {
-    const res = await axios.post(
-      `${ServerUrl}/api/cart/add`,
-      { itemId: id },   // ✅ THIS IS IMPORTANT
-      { withCredentials: true } // ✅ cookie send karega
-    );
 
-    console.log(res.data);
-  } catch (error) { 
+export const addtoCart = async (req, res) => {
+  try {
+    const { itemId } = req.body;
+
+    const userData = await User.findById(req.userId);
+
+    if (!userData) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    let cartData = userData.cartData || {};
+
+    if (cartData[itemId]) {
+      cartData[itemId] += 1;
+    } else {
+      cartData[itemId] = 1;
+    }
+
+    await User.findByIdAndUpdate(req.userId, { cartData });
+
+    return res.status(201).json({ message: "Added to cart" });
+  } catch (error) {
     console.log(error);
+    return res.status(500).json({ message: "Server error" });
   }
 };
 
