@@ -54,7 +54,7 @@ const Add = () => {
       <div className="
          w-full min-h-screen py-6 sm:py-10
          px-3 sm:px-6 md:px-10
-         ml-[75px] sm:ml-[40%] md:ml-[25%] lg:ml-[18%]">
+        ml-[120px] sm:ml-[40%] md:ml-[25%] lg:ml-[18%]">
 
         <h1 className="text-lg sm:text-2xl md:text-3xl font-semibold text-white text-center sm:text-left mb-4 sm:mb-6 border-b border-gray-700 pb-3 mt-10 sm:mt-12">
           Add Product
