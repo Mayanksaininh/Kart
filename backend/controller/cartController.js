@@ -4,8 +4,8 @@ import User from "../models/userModel.js"
 export const addtoCart = async (req, res) => {
   try {
 
-      console.log("userId:", req.userId);      
-    console.log("itemId:", req.body);
+      // console.log("userId:", req.userId);      
+    // console.log("itemId:", req.body);
     const { itemId } = req.body;
 
     const userData = await User.findById(req.userId);
@@ -16,7 +16,7 @@ export const addtoCart = async (req, res) => {
     }
 
     let cartData = userData.cartData || {};
-    console.log("cartData before:", cartData);
+    // console.log("cartData before:", cartData);
 
     if (cartData[itemId]) {
       cartData[itemId] += 1;
@@ -25,7 +25,7 @@ export const addtoCart = async (req, res) => {
     }
 
     await User.findByIdAndUpdate(req.userId, { $set: { cartData }});
-     console.log("cartData after:", cartData)
+    //  console.log("cartData after:", cartData)
 
     return res.status(201).json({ message: "Added to cart" });
   } catch (error) {

@@ -59,6 +59,7 @@ const Collection = () => {
         </div>
       </div>
 
+
       {/* Main Content */}
       <div className="flex flex-col w-full md:ml-[30vw] lg:ml-[20vw]">
         <div className="flex items-center gap-2 p-3">
