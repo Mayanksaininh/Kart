@@ -44,3 +44,5 @@ If you are developing a production application, we recommend using TypeScript wi
 -Start Creating productdetail component ,
 -start Creating Cart functionality ,
 -Create getuserCart function in shopcontext for showing user's data on UI ,
+-Create updateQuantity function in shopcontext ,
+-Create getcartAmount function in shopcontext ,

@@ -67,6 +67,34 @@ function ShopContext ({children}) {
     return totalCount;
     };
 
+    const updateQuantity = async(itemId , qunatity) => {
+         let cartData = structuredClone(cartItem)
+            cartData[itemId] = qunatity
+            setcartItem(cartData)
+        
+        if(userData){
+            try {
+                await axios.post(ServerUrl + "/api/cart/update", {itemId , qunatity} , {withCredentials : true})
+            } catch (error) {
+             console.log(error);   
+            }
+        }
+    }
+
+   const getcartAmount = () => {
+    let totalAmount = 0;
+
+    for (const item in cartItem) {
+        const itemInfo = product.find((product) => product._id === item);
+
+        if (itemInfo && cartItem[item] > 0) {
+            totalAmount += itemInfo.price * cartItem[item];
+        }
+    }
+
+    return totalAmount;
+};
+
     useEffect(() => {
         getproduct()
     } ,[])
@@ -77,7 +105,7 @@ function ShopContext ({children}) {
 
 
 const value = {
-    product , currency , delivery_fee , getproduct , cartItem , addtoCart , getcartcount , setcartItem
+    product , currency , delivery_fee , getproduct , cartItem , addtoCart , getcartcount , setcartItem, updateQuantity,getcartAmount,
 }
     return (
         
