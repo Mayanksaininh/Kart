@@ -37,7 +37,7 @@ function ShopContext ({children}) {
         try {
             const result = await axios.post(
                 ServerUrl + "/api/cart/add",
-                { itemid },
+                { itemId : itemid },
                 { withCredentials: true }
             );
         } catch (error) {
