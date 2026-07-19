@@ -46,6 +46,15 @@ function ShopContext ({children}) {
         }
     }
 
+    const getuserCart = async() => {
+        try {
+            const result = await axios.post(ServerUrl + "/api/cart/get" , {} , {withCredentials : true})
+            setcartItem(result.data)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     const getcartcount = () => {
          let totalCount = 0;
 
@@ -61,6 +70,10 @@ function ShopContext ({children}) {
     useEffect(() => {
         getproduct()
     } ,[])
+
+    useEffect(() => {
+        getuserCart()
+    } , [])
 
 
 const value = {
