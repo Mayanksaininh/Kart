@@ -9,6 +9,7 @@ import PublicRoute from "./PublicRoute";
 import Collection from "./Collection";
 import Contact from "./Contact";
 import ProductDetail from "./ProductDetail";
+import Cart from "./Cart"
 
 
 const Body = () => {
@@ -63,6 +64,16 @@ const Body = () => {
             </PrivateRoute>
           }
         />
+
+         <Route
+          path="/cart"
+          element={
+            <PrivateRoute>
+               <Cart />
+            </PrivateRoute>
+          }
+       />
+
       </Routes>
     </div>
   );

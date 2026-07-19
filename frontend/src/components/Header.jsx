@@ -101,7 +101,7 @@ const Header = () => {
         {/* CART */}
         <div className="relative cursor-pointer">
           <BsCart2 className="text-white text-xl md:text-2xl" />
-          <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] w-[16px] h-[16px] md:w-[18px] md:h-[18px] flex items-center justify-center rounded-full">
+          <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] w-[16px] h-[16px] md:w-[18px] md:h-[18px] flex items-center justify-center rounded-full" onClick={() => navigate("/cart")}>
             {getcartcount()}
           </span>
         </div>
