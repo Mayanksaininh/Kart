@@ -67,14 +67,14 @@ function ShopContext ({children}) {
     return totalCount;
     };
 
-    const updateQuantity = async(itemId , qunatity) => {
+    const updateQuantity = async(itemId , quantity) => {
          let cartData = structuredClone(cartItem)
-            cartData[itemId] = qunatity
+            cartData[itemId] = quantity
             setcartItem(cartData)
         
         if(userData){
             try {
-                await axios.post(ServerUrl + "/api/cart/update", {itemId , qunatity} , {withCredentials : true})
+                await axios.post(ServerUrl + "/api/cart/update", {itemId , quantity} , {withCredentials : true})
             } catch (error) {
              console.log(error);   
             }
