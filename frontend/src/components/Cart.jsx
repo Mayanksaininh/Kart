@@ -40,7 +40,12 @@ const Cart = () =>{
                         <div key = {index} className="w-[100%] h-[10%] border-t border-b">
                             <div className="w-[100%] h-[80%] flex items-start gap-6 bg-[#51808048] py-[10px] px-[20px] rounded-2xl relative">
                                     <img className="w-[85px] h-[145px] rounded-md " src = {productData.image1} alt = ""></img>
+                                      <div className="flex items-start justify-center flex-col gap-[10px]">
+                                    <p className="md:text-[25px] text-[20px] text-[#f3f9fc]">{productData.name}</p>
+                                    <p className="md:text-[25px] text-[20px] text-[#aaf4e7]">{currency} {productData.price}</p>
                             </div>
+                            </div>
+                          
                         </div>
                     )
                 })
