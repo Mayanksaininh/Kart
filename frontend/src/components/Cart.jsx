@@ -48,12 +48,13 @@ const Cart = () =>{
                                         min={1}
                                         value={item.quantity}   
                                         className="w-16 md:w-20 px-2 py-1 md:py-2 text-white text-sm md:text-base font-semibold bg-[#518080b4] border border-[#9ff9f9] rounded-md"
+                                        
                                          onChange={(e) => {
                                         const val = Number(e.target.value)
 
                                         if (val < 1) return
 
-                                        updateQuantity(item._id, item.size, val)
+                                        updateQuantity(item._id,  val)
                                          }}
                                     />
                             </div>
