@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ShopDataContext } from "../context/ShopContext";
 import { useNavigate } from "react-router-dom";
+import { IoTrashBin } from "react-icons/io5";
 
 const Cart = () =>{
 
@@ -48,7 +49,7 @@ const Cart = () =>{
                                         min={1}
                                         value={item.quantity}   
                                         className="w-16 md:w-20 px-2 py-1 md:py-2 text-white text-sm md:text-base font-semibold bg-[#518080b4] border border-[#9ff9f9] rounded-md"
-                                        
+
                                          onChange={(e) => {
                                         const val = Number(e.target.value)
 
@@ -57,6 +58,7 @@ const Cart = () =>{
                                         updateQuantity(item._id,  val)
                                          }}
                                     />
+                                    <IoTrashBin className="text-[#9ff9f9] w-[25px] h-[25px] absolute top-[50%] md:top-[40%] md:right-[5%] right-1" onClick={ () => updateQuantity(item._id,  0)}/>
                             </div>
                             </div>
                           

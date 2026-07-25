@@ -49,3 +49,4 @@ If you are developing a production application, we recommend using TypeScript wi
 -Start Craeting Cart Component ,
 -In cart extract values from shopDataContext using useContext,
 -Add some tailwind Css for showing images in cart,
+-Start creating Cart Total Component ,
