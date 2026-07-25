@@ -36,7 +36,9 @@ const Cart = () =>{
         <div className="w-[100%] h-[92%] flex flex-wrap gap-[20px]">
             {
                 cartData.map((item, index) => {
-                    const productData = product.find((product) => product._id === item._id)
+                const productData = product.find((p) => p._id === item._id)
+
+                    if (!productData) return null 
 
                     return (
                         <div key = {index} className="w-[100%] h-[10%] border-t border-b">

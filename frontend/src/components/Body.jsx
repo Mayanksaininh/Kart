@@ -79,7 +79,7 @@ const Body = () => {
           path="/placeorder"
           element={
             <PrivateRoute>
-               <Cart />
+               <PlaceOrder />
             </PrivateRoute>
           }
        />

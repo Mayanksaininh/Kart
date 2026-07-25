@@ -29,7 +29,7 @@ const CartTotal = () => {
 
         <div className="flex items-center justify-between border-t border-gray-500 pt-3 text-sm sm:text-base font-semibold">
           <span>Total</span>
-          <span className="text-[#9ff9f9]">{currency} {getcartAmount() === 0 ? 0 : getcartAmount() + delivery_fee}</span>
+          <span className="text-[#9ff9f9]">{currency} {getcartAmount() === 0 ? 0 : getcartAmount() + delivery_fee}.00</span>
         </div>
       </div>
 
