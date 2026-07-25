@@ -50,3 +50,5 @@ If you are developing a production application, we recommend using TypeScript wi
 -In cart extract values from shopDataContext using useContext,
 -Add some tailwind Css for showing images in cart,
 -Start creating Cart Total Component ,
+-Cart total componet is rendering ,
+-Start creating PlaceOrder component ,

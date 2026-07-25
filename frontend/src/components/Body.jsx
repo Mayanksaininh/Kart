@@ -10,6 +10,7 @@ import Collection from "./Collection";
 import Contact from "./Contact";
 import ProductDetail from "./ProductDetail";
 import Cart from "./Cart"
+import PlaceOrder from "./placeorder";
 
 
 const Body = () => {
@@ -67,6 +68,15 @@ const Body = () => {
 
          <Route
           path="/cart"
+          element={
+            <PrivateRoute>
+               <Cart />
+            </PrivateRoute>
+          }
+       />
+
+       <Route
+          path="/placeorder"
           element={
             <PrivateRoute>
                <Cart />

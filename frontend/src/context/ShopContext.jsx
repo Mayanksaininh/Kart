@@ -13,7 +13,7 @@ function ShopContext ({children}) {
     const { userData } = useContext(userDataContext)
     const [cartItem , setcartItem] = useState({})
     let currency = '₹'
-    let delivery_fee = 59
+    let delivery_fee = 60
 
     const getproduct = async() =>{
         try {

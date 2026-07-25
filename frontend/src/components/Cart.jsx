@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { ShopDataContext } from "../context/ShopContext";
 import { useNavigate } from "react-router-dom";
 import { IoTrashBin } from "react-icons/io5";
+import CartTotal from "./cartTotal";
 
 const Cart = () =>{
 
@@ -67,6 +68,7 @@ const Cart = () =>{
                 })
             }
         </div>
+        <CartTotal/>
     </div>
  )
 }
