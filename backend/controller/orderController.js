@@ -12,7 +12,7 @@ export const placeOrder = async (req,res) =>{
             userID,
             address,
             payment : false,
-            date = Date.now()
+            date : Date.now()
         }
 
         const newOrder = new Order(orderData)
