@@ -1,4 +1,5 @@
 import React from "react";
+import CartTotal from "./cartTotal";
 
 const PlaceOrder = () => {
     return (
@@ -67,8 +68,8 @@ const PlaceOrder = () => {
     Place Order
   </button>
 </div>
-
   </form>
+
 </div>
     )
 }
