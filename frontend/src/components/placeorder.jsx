@@ -5,8 +5,8 @@ const PlaceOrder = () => {
   
     const {currency , delivery_fee, getcartAmount} = useContext(ShopDataContext)
     return (
-      <div>
-        <div className="lg:w-[50%] w-full h-full flex items-center justify-center lg:mt-0 mt-16 px-4">
+      <div className="flex flex-col lg:flex-row gap-6 px-4 sm:px-6 lg:px-10 py-6">
+        <div className="w-full lg:w-1/2">
   <form className="w-full lg:w-[70%] flex flex-col gap-4">
     
     <div className="py-3 sm:py-4 flex justify-center">
@@ -73,8 +73,8 @@ const PlaceOrder = () => {
 </div>
   </form>
 </div>
-      <div>
-        <div className="w-full sm:w-[90%] md:w-[70%] lg:w-[40%] xl:w-[35%] bg-slate-700 rounded-xl p-4 sm:p-6 flex flex-col gap-3 sm:gap-4 text-white mx-auto lg:mx-0">
+      <div  className="w-full lg:w-1/2 flex justify-center lg:justify-start">
+        <div className="w-full sm:w-[90%] md:w-[70%] lg:w-[80%] bg-slate-700 rounded-xl p-4 sm:p-6 text-white">
               <h2 className="text-lg sm:text-xl font-semibold border-b border-gray-500 pb-3">
         Cart Total
       </h2>
