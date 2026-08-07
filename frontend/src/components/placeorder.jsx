@@ -96,6 +96,16 @@ const PlaceOrder = () => {
           <span>Total</span>
           <span className="text-[#9ff9f9]">{currency} {getcartAmount() === 0 ? 0 : getcartAmount() + delivery_fee}.00</span>
         </div>
+
+        <button
+          className="w-full sm:w-auto px-6 py-3 
+            bg-gradient-to-r from-indigo-500 to-blue-500 
+            text-white font-semibold text-sm sm:text-base 
+            rounded-lg shadow-md shadow-blue-500/30
+            hover:from-indigo-600 hover:to-blue-600 
+            active:scale-95 transition-all duration-200">
+              RazorPay
+        </button>
       </div>
         </div>
       </div>
