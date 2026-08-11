@@ -1,9 +1,24 @@
-import React , { useContext } from "react";
+import React , { useContext, useState } from "react";
 import { ShopDataContext } from "../context/ShopContext";
 
 const PlaceOrder = () => {
   
     const {currency , delivery_fee, getcartAmount} = useContext(ShopDataContext)
+
+    const [method , setmethod] = useState("razorpay")
+
+    const [formData , setformData] = useState({
+      firstname : "",
+      lastname : "",
+      email : "",
+      street : "",
+      landmark : "",
+      city: "",
+      state : "",
+      pincode : "",
+      contact : "",
+    })
+
     return (
       <div className="flex flex-col lg:flex-row gap-6 px-4 sm:px-6 lg:px-10 py-6">
         <div className="w-full lg:w-1/2">
@@ -59,17 +74,7 @@ const PlaceOrder = () => {
     </div>
 
     <div className="w-full flex justify-center mt-4">
-  <button
-    type="submit"
-    className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 
-               bg-gradient-to-r from-blue-500 to-cyan-400 
-               text-white text-sm sm:text-base font-semibold 
-               rounded-lg shadow-md shadow-blue-500/30 
-               hover:from-blue-600 hover:to-cyan-500 
-               active:scale-95 transition-all duration-200"
-  >
-    Place Order
-  </button>
+  
 </div>
   </form>
 </div>
@@ -97,15 +102,41 @@ const PlaceOrder = () => {
           <span className="text-[#9ff9f9]">{currency} {getcartAmount() === 0 ? 0 : getcartAmount() + delivery_fee}.00</span>
         </div>
 
-        <button
-          className="w-full sm:w-auto px-6 py-3 
-            bg-gradient-to-r from-indigo-500 to-blue-500 
-            text-white font-semibold text-sm sm:text-base 
-            rounded-lg shadow-md shadow-blue-500/30
-            hover:from-indigo-600 hover:to-blue-600 
-            active:scale-95 transition-all duration-200">
-              RazorPay
-        </button>
+      <button onClick={() => setmethod("razorpay")}
+  className={`w-full sm:w-auto px-6 py-3
+  flex items-center justify-center gap-2
+  bg-white hover:bg-gray-100
+  text-[#2D5BE3] font-semibold text-sm sm:text-base
+  rounded-lg shadow-md shadow-blue-500/30
+  border border-[#2D5BE3]
+  active:scale-95 transition-all duration-200
+  ${method === "razorpay" ? "border-[5px] border-blue-900 rounded-sm" : ""}
+`}
+>
+  <img
+    src="https://razorpay.com/favicon.ico"
+    alt="Razorpay"
+    className="w-5 h-5 rounded-sm"
+  />
+  Pay with Razorpay
+</button>
+
+        <div className="w-full flex justify-center mt-4">
+
+               <button
+    type="submit"
+    className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 
+               bg-gradient-to-r from-blue-500 to-cyan-400 
+               text-white text-sm sm:text-base font-semibold 
+               rounded-lg shadow-md shadow-blue-500/30 
+               hover:from-blue-600 hover:to-cyan-500 
+               active:scale-95 transition-all duration-200"
+  >
+    Place Order
+  </button>
+        </div>
+       
+  
       </div>
         </div>
       </div>
