@@ -19,6 +19,12 @@ const PlaceOrder = () => {
       contact : "",
     })
 
+    const onChangeHandler = (e)=>{
+      const name = e.target.name
+      const value = e.target.value
+      setformData(data => ({...data , [name] : value}))
+    }
+
     return (
       <div className="flex flex-col lg:flex-row gap-6 px-4 sm:px-6 lg:px-10 py-6">
         <div className="w-full lg:w-1/2">
@@ -34,43 +40,45 @@ const PlaceOrder = () => {
     {/* First & Last Name */}
     <div className="flex flex-col sm:flex-row gap-3">
       <input type="text" placeholder="First name" required
-       className="w-full sm:w-[48%] h-[48px] rounded-md bg-white text-black placeholder-gray-400 text-[16px] px-4 shadow-sm shadow-[#343434] outline-none focus:ring-2 focus:ring-blue-400"></input>
+       className="w-full sm:w-[48%] h-[48px] rounded-md bg-white text-black placeholder-gray-400 text-[16px] px-4 shadow-sm shadow-[#343434] outline-none focus:ring-2 focus:ring-blue-400" onChange={onChangeHandler} name = "firstname" value = {formData.firstname}></input>
       <input type="text" placeholder="Last name" required
-        className= "w-full sm:w-[48%] h-[48px] rounded-md bg-white text-black placeholder-gray-400 text-[16px] px-4 shadow-sm shadow-[#343434] outline-none focus:ring-2 focus:ring-blue-400" />
+        className= "w-full sm:w-[48%] h-[48px] rounded-md bg-white text-black placeholder-gray-400 text-[16px] px-4 shadow-sm shadow-[#343434] outline-none focus:ring-2 focus:ring-blue-400" onChange={onChangeHandler} name = "lastname" value = {formData.lastname} />
     </div>
 
     {/* Email */}
     <div className="flex">
       <input type="email" placeholder="Email" required
-        className ="w-full sm:w-[48%] h-[48px] rounded-md bg-white text-black placeholder-gray-400 text-[16px] px-4 shadow-sm shadow-[#343434] outline-none focus:ring-2 focus:ring-blue-400" />
+        className ="w-full sm:w-[48%] h-[48px] rounded-md bg-white text-black placeholder-gray-400 text-[16px] px-4 shadow-sm shadow-[#343434] outline-none focus:ring-2 focus:ring-blue-400" onChange={onChangeHandler} name = "email" value = {formData.email}/>
     </div>
 
     {/* Street & Landmark */}
     <div className="flex flex-col sm:flex-row gap-3">
       <input type="text" placeholder="Street" required
-        className="w-full sm:w-[48%] h-[48px] rounded-md bg-white text-black placeholder-gray-400 text-[16px] px-4 shadow-sm shadow-[#343434] outline-none focus:ring-2 focus:ring-blue-400" />
+        className="w-full sm:w-[48%] h-[48px] rounded-md bg-white text-black placeholder-gray-400 text-[16px] px-4 shadow-sm shadow-[#343434] outline-none focus:ring-2 focus:ring-blue-400" onChange={onChangeHandler} name = "street" value = {formData.street}/>
+
       <input type="text" placeholder="Land-Mark" required
-        className="w-full sm:w-[48%] h-[48px] rounded-md bg-white text-black placeholder-gray-400 text-[16px] px-4 shadow-sm shadow-[#343434] outline-none focus:ring-2 focus:ring-blue-400" />
+        className="w-full sm:w-[48%] h-[48px] rounded-md bg-white text-black placeholder-gray-400 text-[16px] px-4 shadow-sm shadow-[#343434] outline-none focus:ring-2 focus:ring-blue-400" onChange={onChangeHandler} name = "landmark" value = {formData.landmark}/>
     </div>
 
     {/* City & Pincode */}
     <div className="flex flex-col sm:flex-row gap-3">
       <input type="text" placeholder="City" required
-        className="w-full sm:w-[48%] h-[48px] rounded-md bg-white text-black placeholder-gray-400 text-[16px] px-4 shadow-sm shadow-[#343434] outline-none focus:ring-2 focus:ring-blue-400" />
+        className="w-full sm:w-[48%] h-[48px] rounded-md bg-white text-black placeholder-gray-400 text-[16px] px-4 shadow-sm shadow-[#343434] outline-none focus:ring-2 focus:ring-blue-400" onChange={onChangeHandler} name = "city" value = {formData.city}/>
+
       <input type="text" placeholder="Pincode" required
-        className="w-full sm:w-[48%] h-[48px] rounded-md bg-white text-black placeholder-gray-400 text-[16px] px-4 shadow-sm shadow-[#343434] outline-none focus:ring-2 focus:ring-blue-400" />
+        className="w-full sm:w-[48%] h-[48px] rounded-md bg-white text-black placeholder-gray-400 text-[16px] px-4 shadow-sm shadow-[#343434] outline-none focus:ring-2 focus:ring-blue-400" onChange={onChangeHandler} name = "pincode" value = {formData.pincode}/>
     </div>
 
     {/* State */}
     <div className="flex">
       <input type="text" placeholder="State" required
-        className="w-full sm:w-[48%] h-[48px] rounded-md bg-white text-black placeholder-gray-400 text-[16px] px-4 shadow-sm shadow-[#343434] outline-none focus:ring-2 focus:ring-blue-400" />
+        className="w-full sm:w-[48%] h-[48px] rounded-md bg-white text-black placeholder-gray-400 text-[16px] px-4 shadow-sm shadow-[#343434] outline-none focus:ring-2 focus:ring-blue-400" onChange={onChangeHandler} name = "state" value = {formData.state}/>
     </div>
 
     {/* Contact */}
     <div className="flex">
       <input type="text" placeholder="Contact Number" required
-        className="w-full sm:w-[48%] h-[48px] rounded-md bg-white text-black placeholder-gray-400 text-[16px] px-4 shadow-sm shadow-[#343434] outline-none focus:ring-2 focus:ring-blue-400" />
+        className="w-full sm:w-[48%] h-[48px] rounded-md bg-white text-black placeholder-gray-400 text-[16px] px-4 shadow-sm shadow-[#343434] outline-none focus:ring-2 focus:ring-blue-400" onChange={onChangeHandler} name = "contact" value = {formData.contact}/>
     </div>
 
     <div className="w-full flex justify-center mt-4">
@@ -120,6 +128,10 @@ const PlaceOrder = () => {
   />
   Pay with Razorpay
 </button>
+
+<h4 className="w-full text-center text-grey text-sm sm:text-base font-small mt-0">
+  Click on Razorpay! Before clicking on Place Order
+</h4>
 
         <div className="w-full flex justify-center mt-4">
 
