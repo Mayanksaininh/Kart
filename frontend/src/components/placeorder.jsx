@@ -11,11 +11,13 @@ const PlaceOrder = () => {
       firstname : "",
       lastname : "",
       email : "",
+      houseNumber : "",
       street : "",
       landmark : "",
       city: "",
       state : "",
       pincode : "",
+      country : "",
       contact : "",
     })
 
@@ -23,6 +25,8 @@ const PlaceOrder = () => {
       const name = e.target.name
       const value = e.target.value
       setformData(data => ({...data , [name] : value}))
+
+
     }
 
     return (
@@ -41,14 +45,17 @@ const PlaceOrder = () => {
     <div className="flex flex-col sm:flex-row gap-3">
       <input type="text" placeholder="First name" required
        className="w-full sm:w-[48%] h-[48px] rounded-md bg-white text-black placeholder-gray-400 text-[16px] px-4 shadow-sm shadow-[#343434] outline-none focus:ring-2 focus:ring-blue-400" onChange={onChangeHandler} name = "firstname" value = {formData.firstname}></input>
-      <input type="text" placeholder="Last name" required
+      <input type="text" placeholder="Last name" 
         className= "w-full sm:w-[48%] h-[48px] rounded-md bg-white text-black placeholder-gray-400 text-[16px] px-4 shadow-sm shadow-[#343434] outline-none focus:ring-2 focus:ring-blue-400" onChange={onChangeHandler} name = "lastname" value = {formData.lastname} />
     </div>
 
     {/* Email */}
-    <div className="flex">
+    <div className="flex gap-3">
       <input type="email" placeholder="Email" required
         className ="w-full sm:w-[48%] h-[48px] rounded-md bg-white text-black placeholder-gray-400 text-[16px] px-4 shadow-sm shadow-[#343434] outline-none focus:ring-2 focus:ring-blue-400" onChange={onChangeHandler} name = "email" value = {formData.email}/>
+
+        <input type="text" placeholder="House Number" required
+        className ="w-full sm:w-[48%] h-[48px] rounded-md bg-white text-black placeholder-gray-400 text-[16px] px-4 shadow-sm shadow-[#343434] outline-none focus:ring-2 focus:ring-blue-400" onChange={onChangeHandler} name = "houseNumber" value = {formData.houseNumber}/>
     </div>
 
     {/* Street & Landmark */}
@@ -70,9 +77,12 @@ const PlaceOrder = () => {
     </div>
 
     {/* State */}
-    <div className="flex">
+    <div className="flex gap-3">
       <input type="text" placeholder="State" required
         className="w-full sm:w-[48%] h-[48px] rounded-md bg-white text-black placeholder-gray-400 text-[16px] px-4 shadow-sm shadow-[#343434] outline-none focus:ring-2 focus:ring-blue-400" onChange={onChangeHandler} name = "state" value = {formData.state}/>
+
+        <input type="text" placeholder="Country" required
+        className="w-full sm:w-[48%] h-[48px] rounded-md bg-white text-black placeholder-gray-400 text-[16px] px-4 shadow-sm shadow-[#343434] outline-none focus:ring-2 focus:ring-blue-400" onChange={onChangeHandler} name = "country" value = {formData.country}/>
     </div>
 
     {/* Contact */}
