@@ -3,7 +3,7 @@ import { ShopDataContext } from "../context/ShopContext";
 
 const PlaceOrder = () => {
   
-    const {currency , delivery_fee, getcartAmount} = useContext(ShopDataContext)
+    const {currency , delivery_fee, getcartAmount, cartItem , product} = useContext(ShopDataContext)
 
     const [method , setmethod] = useState("razorpay")
 
@@ -25,14 +25,44 @@ const PlaceOrder = () => {
       const name = e.target.name
       const value = e.target.value
       setformData(data => ({...data , [name] : value}))
+}
 
 
-    }
+const onSubmitHandler = (e) => {
+        e.preventDefault()
+
+      if (!method) {
+    alert("Please select a payment method")
+    return
+  }
+
+        try {
+         let orderItems = []
+        for (const items in cartItem) {
+           if (cartItem[items] > 0) {
+           const itemInfo = structuredClone(product.find(p => p._id === items))
+            if (itemInfo) {
+              itemInfo.quantity = cartItem[items]
+              orderItems.push(itemInfo)
+            }
+          }
+        }
+
+        let orderData = {
+          address : formData ,
+          items : orderItems,
+          amount : getcartAmount() + delivery_fee
+        }
+
+        } catch (error) {
+          console.log(error)
+        }
+      }
 
     return (
       <div className="flex flex-col lg:flex-row gap-6 px-4 sm:px-6 lg:px-10 py-6">
         <div className="w-full lg:w-1/2">
-  <form className="w-full lg:w-[70%] flex flex-col gap-4">
+  <form className="w-full lg:w-[70%] flex flex-col gap-4" onSubmit={onSubmitHandler} id="placeorder-form">
     
     <div className="py-3 sm:py-4 flex justify-center">
   <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white text-center relative">
@@ -146,16 +176,17 @@ const PlaceOrder = () => {
         <div className="w-full flex justify-center mt-4">
 
                <button
-    type="submit"
-    className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 
-               bg-gradient-to-r from-blue-500 to-cyan-400 
-               text-white text-sm sm:text-base font-semibold 
-               rounded-lg shadow-md shadow-blue-500/30 
-               hover:from-blue-600 hover:to-cyan-500 
-               active:scale-95 transition-all duration-200"
-  >
-    Place Order
-  </button>
+                   type="submit"
+                   form="placeorder-form" 
+                   className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 
+                      bg-gradient-to-r from-blue-500 to-cyan-400 
+                    text-white text-sm sm:text-base font-semibold 
+                    rounded-lg shadow-md shadow-blue-500/30 
+                    hover:from-blue-600 hover:to-cyan-500 
+                    active:scale-95 transition-all duration-200"
+                >
+                Place Order
+                </button>
         </div>
        
   
