@@ -1,9 +1,12 @@
 import React , { useContext, useState } from "react";
 import { ShopDataContext } from "../context/ShopContext";
+import axios from "axios";
+import  { AuthDataContext } from "../context/AuthContext";
 
 const PlaceOrder = () => {
   
     const {currency , delivery_fee, getcartAmount, cartItem , product} = useContext(ShopDataContext)
+    const {ServerUrl} = useContext(AuthDataContext)
 
     const [method , setmethod] = useState("razorpay")
 
@@ -28,7 +31,7 @@ const PlaceOrder = () => {
 }
 
 
-const onSubmitHandler = (e) => {
+const onSubmitHandler = async(e) => {
         e.preventDefault()
 
       if (!method) {
@@ -53,6 +56,16 @@ const onSubmitHandler = (e) => {
           items : orderItems,
           amount : getcartAmount() + delivery_fee
         }
+
+     switch (method) {
+    case "razorpay": {
+    const result = await axios.post(ServerUrl + "/api/order/placeorder", orderData, { withCredentials: true })
+    console.log(result.data);
+    break;  
+  }
+  default:
+    break;
+}
 
         } catch (error) {
           console.log(error)
@@ -84,7 +97,7 @@ const onSubmitHandler = (e) => {
       <input type="email" placeholder="Email" required
         className ="w-full sm:w-[48%] h-[48px] rounded-md bg-white text-black placeholder-gray-400 text-[16px] px-4 shadow-sm shadow-[#343434] outline-none focus:ring-2 focus:ring-blue-400" onChange={onChangeHandler} name = "email" value = {formData.email}/>
 
-        <input type="text" placeholder="House Number" required
+        <input type="string" placeholder="House Number" required
         className ="w-full sm:w-[48%] h-[48px] rounded-md bg-white text-black placeholder-gray-400 text-[16px] px-4 shadow-sm shadow-[#343434] outline-none focus:ring-2 focus:ring-blue-400" onChange={onChangeHandler} name = "houseNumber" value = {formData.houseNumber}/>
     </div>
 
