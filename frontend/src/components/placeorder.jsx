@@ -163,7 +163,9 @@ const onSubmitHandler = async(e) => {
           <span className="text-[#9ff9f9]">{currency} {getcartAmount() === 0 ? 0 : getcartAmount() + delivery_fee}.00</span>
         </div>
 
-      <button onClick={() => setmethod("razorpay")}
+      <button 
+      type="button"
+      onClick={() => setmethod("razorpay")}
   className={`w-full sm:w-auto px-6 py-3
   flex items-center justify-center gap-2
   bg-white hover:bg-gray-100
