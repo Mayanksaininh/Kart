@@ -2,12 +2,14 @@ import React , { useContext, useState } from "react";
 import { ShopDataContext } from "../context/ShopContext";
 import axios from "axios";
 import  { AuthDataContext } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const PlaceOrder = () => {
   
-    const {currency , delivery_fee, getcartAmount, cartItem , product} = useContext(ShopDataContext)
+    const {currency , delivery_fee, getcartAmount, cartItem , setcartItem ,product} = useContext(ShopDataContext)
     const {ServerUrl} = useContext(AuthDataContext)
 
+    const navigate = useNavigate()
     const [method , setmethod] = useState("razorpay")
 
     const [formData , setformData] = useState({
@@ -61,6 +63,14 @@ const onSubmitHandler = async(e) => {
     case "razorpay": {
     const result = await axios.post(ServerUrl + "/api/order/placeorder", orderData, { withCredentials: true })
     console.log(result.data);
+
+    if(result.data){
+      setcartItem({})
+      navigate("/myorder")
+    }
+    else{
+      console.log(result.data.message);
+    }
     break;  
   }
   default:

@@ -52,3 +52,4 @@ If you are developing a production application, we recommend using TypeScript wi
 -Start creating Cart Total Component ,
 -Cart total componet is rendering ,
 -Start creating PlaceOrder component ,
+-Start creating My order component for user ,

@@ -11,6 +11,7 @@ import Contact from "./Contact";
 import ProductDetail from "./ProductDetail";
 import Cart from "./Cart"
 import PlaceOrder from "./placeorder";
+import MyOrder from "./MyOrder";
 
 
 const Body = () => {
@@ -80,6 +81,15 @@ const Body = () => {
           element={
             <PrivateRoute>
                <PlaceOrder />
+            </PrivateRoute>
+          }
+       />
+
+       <Route
+          path="/myorder"
+          element={
+            <PrivateRoute>
+               <MyOrder/>
             </PrivateRoute>
           }
        />
