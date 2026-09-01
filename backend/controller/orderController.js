@@ -18,7 +18,7 @@ export const placeOrder = async (req,res) =>{
         const newOrder = new Order(orderData)
         await newOrder.save()
 
-        await User.findByIdAndDelete(userID , {cartData :{} })        
+        await User.findByIdAndUpdate(userID , {cartData :{} })        
 
         return res.status(201).json({message : 'Order Palced'})
 
