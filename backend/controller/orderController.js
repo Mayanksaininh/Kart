@@ -30,7 +30,7 @@ export const placeOrder = async (req,res) =>{
 
 export const userOrder = async (req,res) =>{
     try {
-        const userId = req.userID
+        const userID = req.userID
         const orders = await Order.find({userID})
         return res.status(200).json(orders)
     } 

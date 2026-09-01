@@ -22,10 +22,11 @@ const MyOrder = () => {
                         item["payment"] = order.payment
                         item["date"] = order.date
                         // item["paymentmethod"] = order.paymentmethod
-                        allOrdersItem.push[item]
+                        allOrdersItem.push(item)
                     })
                 })
 
+                    console.log("ALL ORDER ITEMS:", allOrdersItem)
                 setorderdata(allOrdersItem.reverse())
             }
         } catch (error) {
@@ -47,8 +48,8 @@ const MyOrder = () => {
                 {
                     orderdata.map((item,index)=>(
                         <div key = {index} className="w-[100%] h-[10%] border-t border-b">
-                            <div className="w-[100%] h-[80%] flex items-start gap-6 bg-[##51808048] py-[10px] px-[20px] rounded-2xl relative">
-                            <image src = {item.image1} alt = "" className="w-[130px] h-[130px] rounded-md"></image>
+                            <div className="w-[100%] h-[80%] flex items-start gap-6 bg-[#51808048] py-[10px] px-[20px] rounded-2xl relative">
+                            <img src = {item.image1} alt = "" className="w-[130px] h-[130px] rounded-md"></img>
                             </div>
 
                             <div className="flex items-start justify-center flex-col gap-[5px]">
@@ -56,6 +57,9 @@ const MyOrder = () => {
                                 <div className="flex items-center gap-[8px] md:gap-[20px]">
                                     <p className="md:text-[18px] text-[12px] text-[#aafe4e7]">{currency} {item.price}</p>
                                     <p className="md:text-[18px] text-[12px] text-[#aafe4e7]">Quantity :  {item.quantity}</p>
+                                </div>
+                                <div className = "flex items-center">
+                                    <p className="md:text-[18px] text-[12px] text-[#aafe4e7]">Date : <span className="text-[#e4fbfb] pl-[10px] md:text-[16px] text-[11px]">{new Date(item.date).toDateString()}</span></p>
                                 </div>
                             </div>
                         </div>
