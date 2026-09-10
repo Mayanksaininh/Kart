@@ -8,7 +8,7 @@ import { useState } from "react";
 import { AuthDataContext } from "../context/AuthContext";
 import axios from "axios";
 import { ShopDataContext } from "../context/ShopContext.jsx";
-
+import MyOrder from "./MyOrder.jsx";
 
 
 
@@ -86,7 +86,10 @@ const Header = () => {
           {ShowProfile && (
             <div className="absolute right-0 mt-2 w-[200px] bg-white rounded-xl shadow-md overflow-hidden z-20">
               <ul className="py-1 text-sm text-gray-700">
-                <li className="px-3 py-2 hover:bg-gray-100 cursor-pointer">📦 My Orders</li>
+                <li className="px-3 py-2 hover:bg-gray-100 cursor-pointer"   onClick={() => {
+          navigate("/myorder");
+          setShowProfile(false);
+        }}>📦 My Orders</li>
                 <li
                   className="px-3 py-2 text-red-500 hover:bg-gray-100 cursor-pointer"
                   onClick={handleLogOut}

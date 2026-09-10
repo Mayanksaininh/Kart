@@ -75,6 +75,16 @@ const MyOrder = () => {
                 </p>
               </div>
             </div>
+
+             <div className="shrink-0 ml-auto"> 
+              <button 
+                className="px-2.5 py-1 sm:px-4 sm:py-2 rounded-md text-[10px] sm:text-[13px] md:text-[16px] text-white border border-gray-500 hover:bg-slate-600 active:bg-slate-700 cursor-pointer whitespace-nowrap transition" 
+                onClick={loadOrderData} 
+              >   
+                Track Order 
+              </button> 
+            </div> 
+
           </div>
         ))}
       </div>
