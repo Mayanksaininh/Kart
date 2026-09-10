@@ -14,6 +14,10 @@ const MyOrder = () => {
     const loadOrderData = async() => {
         try {
             const result = await axios.post(ServerUrl + "/api/order/userOrder", {} , {withCredentials : true})
+
+
+        console.log("ORDER API RESPONSE:", result.data)
+        
             if(result.data){
                 let allOrdersItem = []
                 result.data.map((order) => {
@@ -44,28 +48,51 @@ const MyOrder = () => {
                 <h1>My Orders </h1>
             </div>
 
-            <div className="w-[100%] h-[92%] flex flex-wrap gap-[20px]">
-                {
-                    orderdata.map((item,index)=>(
-                        <div key = {index} className="w-[100%] h-[10%] border-t border-b">
-                            <div className="w-[100%] h-[80%] flex items-start gap-6 bg-[#51808048] py-[10px] px-[20px] rounded-2xl relative">
-                            <img src = {item.image1} alt = "" className="w-[130px] h-[130px] rounded-md"></img>
-                            </div>
+            <div className="w-full flex flex-col gap-4 mt-6 px-4">
+  {orderdata.map((item, index) => (
+    <div
+      key={index}
+      className="w-full flex flex-col sm:flex-row items-start gap-4 bg-[#51808048] border border-gray-600 py-4 px-4 sm:px-6 rounded-2xl"
+    >
+      {/* Image */}
+      <img
+        src={item.image1}
+        alt=""
+        className="w-[80px] h-[100px] sm:w-[120px] sm:h-[120px] md:w-[140px] md:h-[140px] rounded-md object-cover shrink-0"
+      />
 
-                            <div className="flex items-start justify-center flex-col gap-[5px]">
-                                <p className="md:text-[25px] text-[20px] text-[#f3f9fc]">{item.name}</p>
-                                <div className="flex items-center gap-[8px] md:gap-[20px]">
-                                    <p className="md:text-[18px] text-[12px] text-[#aafe4e7]">{currency} {item.price}</p>
-                                    <p className="md:text-[18px] text-[12px] text-[#aafe4e7]">Quantity :  {item.quantity}</p>
-                                </div>
-                                <div className = "flex items-center">
-                                    <p className="md:text-[18px] text-[12px] text-[#aafe4e7]">Date : <span className="text-[#e4fbfb] pl-[10px] md:text-[16px] text-[11px]">{new Date(item.date).toDateString()}</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    ))
-                }
-            </div>
+      {/* Details */}
+      <div className="flex flex-col gap-2 flex-1">
+        <p className="text-[18px] sm:text-[20px] md:text-[22px] text-[#f3f9fc] font-medium">
+          {item.name}
+        </p>
+
+        <div className="flex flex-wrap items-center gap-3 sm:gap-6">
+          <p className="text-[13px] sm:text-[15px] md:text-[17px] text-[#aaf5fa]">
+            {currency} {item.price} + delivery charge
+          </p>
+          <p className="text-[13px] sm:text-[15px] md:text-[17px] text-[#aaf5fa]">
+            Qty: {item.quantity}
+          </p>
+        </div>
+
+        <p className="text-[12px] sm:text-[14px] md:text-[15px] text-[#aaf5fa]">
+          Date:{" "}
+          <span className="text-[#e4fbfb]">
+            {new Date(item.date).toDateString()}
+          </span>
+        </p>
+
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-green-400 shrink-0"></span>
+          <p className="text-[12px] sm:text-[14px] text-green-400 font-medium">
+            {item.status}
+          </p>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
         </div>
     )
 }

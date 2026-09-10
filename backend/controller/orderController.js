@@ -5,11 +5,11 @@ export const placeOrder = async (req,res) =>{
     try {
 
         const{items , amount , address} = req.body
-        const userID = req.userId
+        const userId = req.userId
         const orderData = {
             items,
             amount,
-            userID,
+            userId,
             address,
             payment : false,
             date : Date.now()
@@ -18,7 +18,7 @@ export const placeOrder = async (req,res) =>{
         const newOrder = new Order(orderData)
         await newOrder.save()
 
-        await User.findByIdAndUpdate(userID , {cartData :{} })        
+        await User.findByIdAndUpdate(userId , {cartData :{} })        
 
         return res.status(201).json({message : 'Order Palced'})
 
@@ -30,8 +30,8 @@ export const placeOrder = async (req,res) =>{
 
 export const userOrder = async (req,res) =>{
     try {
-        const userID = req.userID
-        const orders = await Order.find({userID})
+        const userId = req.userId
+        const orders = await Order.find({userId})
         return res.status(200).json(orders)
     } 
     catch (error) {

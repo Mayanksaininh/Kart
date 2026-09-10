@@ -7,6 +7,6 @@ const orderRoutes = express.Router()
 
 
 orderRoutes.post("/placeorder" , isAuth , placeOrder)
-orderRoutes.post("/userorder" , isAuth ,  userOrder)
+orderRoutes.post("/userOrder" , isAuth ,  userOrder)
 
 export default orderRoutes 
