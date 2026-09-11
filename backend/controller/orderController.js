@@ -39,3 +39,27 @@ export const userOrder = async (req,res) =>{
         return res.status(500).json({massage : "userOrder error"})
     }
 }
+
+
+
+// for admin 
+
+export const allOrders = async (req,res) => {
+    try {
+        const orders = await Order.find({})
+        res.status(200).json(orders)
+    } catch (error) {
+        return res.status(500).json({message : "Admin All orders error"})
+    }
+}
+
+
+export const updateStatus = async(req,res) =>{
+    try {
+        const {orderId , status} = req.body
+        await Order.findByIdAndUpdate(orderId , {status}) 
+        return res.status(201).json({message : "Status Updated"})
+    } catch (error) {
+     return res.status(500).json({message : "error.message"})   
+    }
+}
