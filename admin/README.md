@@ -27,3 +27,4 @@ If you are developing a production application, we recommend using TypeScript wi
 -Create Add product component ,
 -Create Listed Product component ,
 -Create Remove product button and adding api of backend ,
+-Start craeting orders component for admin ,
