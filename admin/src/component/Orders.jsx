@@ -35,7 +35,7 @@ return (
             {
                 orders.map((order,index) => {
                     return(
-                    <div key = {index} className="w-[90%] h-[40%] bg-slate-600 rounded-xl flex lg:items-center items-start justify-between flex-col lg:flex-row p-[10px] md:px-[20px] gap-[20px]">
+                    <div key = {index} className="w-[90%] h-[40%] bg-slate-600 rounded-xl flex lg:items-center items-start justify-between flex-col lg:flex-row p-[10px] md:px-[20px] gap-[20px] mb-4 ">
 
                     <div>
                         <div className="flex items-start justify-center flex-col gap-[5px] text-[16px] text-[#56dbfc] ">
@@ -47,12 +47,39 @@ return (
                                         </p>
                                         )
                                     }
+                                    else {
+                                        return (
+                                            <p key = {index}> {item.name.toUpperCase()} * {item.quantity} , <span></span></p>
+                                        )
+                                    }
                                 })
                             }
                         </div>
+
+                        <div className="text-[15px] text-green-100">
+                            <p>{order.address.firstname+ " " +order.address.lastname}</p>
+                            <p>{order.address.email + ", " + "Contact : " + order.address.contact}</p>
+                            <p>{order.address.street + ", " +"House Number : " + order.address.houseNumber+ ", " + order.address.landmark}</p>
+                            <p>{order.address.city + ", " + order.address.pincode + ", " + order.address.state + ", " + order.address.country}</p>
+                        </div>
+
+                        <div className="text-[15px] "></div>
+                            <p>Items : {order.items.length}</p>
+                            <p>Payment : {order.payment ? "Done" : "Pending"}</p>
+                            <p>Date : {new Date(order.date).toLocaleDateString()}</p>
+                            <p className="text-[20px] text-white">₹ {order.amount}</p>
+                        </div>
+
+                        <select value={order.status} className="px-[5px] py-[10px] bg-slate-500 rounded-lg border-[1px] border-[#96eef3]">
+                          <option value="Order Placed">Order Placed</option>  
+                          <option value="Packing">Packing</option>  
+                          <option value="Shipped">Shipped</option>  
+                          <option value="Out for Delivery">Out for Delivery</option>  
+                          <option value="Delivered">Delivered</option>  
+                        </select>
                     </div>
 
-                    </div>
+                     
                 )})
             }
 
