@@ -1,22 +1,30 @@
-import jwt from "jsonwebtoken" 
+import jwt from "jsonwebtoken"
 
-export const adminAuth = async(req,res,next) =>{
-    try {
 
-        const {token} = req.cookies
-        if(!token){
-            return res.status(401).json({message : "admin does not have token"})
-        }
-        const verifyToken = jwt.verify(token,process.env.JWT_SECRET)
-        if(!verifyToken){
-            return res.status(400).json({message : "admin does not have valid token"})
-        }
-
-        req.adminEmail = process.env.ADMIN_EMAIL
-
-        next()
-
-    } catch (error) {
-           return res.status(400).json({message : "AdminAuth error"})
+export const adminAuth = async(req, res, next) => {
+  try {
+    console.log("ALL COOKIES:", req.cookies) 
+    
+    const { adminToken } = req.cookies
+    console.log("ADMIN TOKEN:", adminToken)   
+    
+    if (!adminToken) {
+      return res.status(401).json({ message: "admin does not have token" })
     }
+
+    const verifyToken = jwt.verify(adminToken, process.env.JWT_SECRET)
+    console.log("VERIFY TOKEN:", verifyToken) 
+
+    if (verifyToken.email !== process.env.ADMIN_EMAIL) {
+      console.log("EMAIL:", verifyToken.email, "ENV:", process.env.ADMIN_EMAIL) 
+      return res.status(403).json({ message: "Not authorized as admin" })
+    }
+
+    req.adminEmail = process.env.ADMIN_EMAIL
+    next()
+
+  } catch (error) {
+    console.log("ERROR:", error.message)     
+    return res.status(400).json({ message: "AdminAuth error" })
+  }
 }

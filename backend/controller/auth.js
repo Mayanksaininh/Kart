@@ -123,7 +123,7 @@ export const adminlogin = async (req,res) =>{
 
         
             const token = await genToken1(email)
-            res.cookie("token" , token,{
+            res.cookie("adminToken" , token,{
             httpOnly: true,
             secure: false,
             sameSite : "lax",
