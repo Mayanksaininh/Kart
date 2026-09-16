@@ -69,8 +69,19 @@ const MyOrder = () => {
                 </span>
               </p>
               <div className="flex items-center gap-1.5 sm:gap-2">
-                <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-green-400 shrink-0"></span>
-                <p className="text-[11px] sm:text-[14px] md:text-[16px] text-green-400 font-medium">
+                  <span className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full shrink-0 
+                       ${item.status === "Delivered" ? "bg-green-400" : 
+                       item.status === "Shipped" ? "bg-blue-400" : 
+                       item.status === "Out for Delivery" ? "bg-yellow-400" : 
+                       item.status === "Packing" ? "bg-orange-400" : 
+                       "bg-gray-400"}`}>
+                  </span>
+                <p className={`text-[11px] sm:text-[14px] md:text-[16px] font-medium
+                  ${item.status === "Delivered" ? "text-green-400" : 
+                  item.status === "Shipped" ? "text-blue-400" : 
+                  item.status === "Out for Delivery" ? "text-yellow-400" : 
+                  item.status === "Packing" ? "text-orange-400" : 
+                  "text-gray-400"}`}>
                   {item.status}
                 </p>
               </div>

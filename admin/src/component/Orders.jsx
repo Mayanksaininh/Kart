@@ -18,6 +18,24 @@ const fetchAllOrder = async() => {
     }
 }
 
+const statusHandler = async(e , orderId) =>{
+    try {
+        const newStatus = e.target.value
+        const result = await axios.post(ServerUrl + "/api/order/status" , {orderId, status:e.target.value} , {withCredentials : true})
+        
+        if(result.data){
+            setorders(prev => prev.map(order => 
+                order._id === orderId 
+                    ? { ...order, status: newStatus } 
+                    : order
+            ))
+        }
+    } catch (error) {
+        console.log(error);
+
+    }
+}
+
 useEffect(() => {
     fetchAllOrder()
 } , [])
@@ -59,7 +77,7 @@ return (
                         <div className="text-[15px] text-green-100">
                             <p>{order.address.firstname+ " " +order.address.lastname}</p>
                             <p>{order.address.email + ", " + "Contact : " + order.address.contact}</p>
-                            <p>{order.address.street + ", " +"House Number : " + order.address.houseNumber+ ", " + order.address.landmark}</p>
+                            <p>{order.address.street + ", " +"House Number : " + order.address.houseNumber+ ", "+"Land-Mark : " + order.address.landmark}</p>
                             <p>{order.address.city + ", " + order.address.pincode + ", " + order.address.state + ", " + order.address.country}</p>
                         </div>
 
@@ -70,7 +88,7 @@ return (
                             <p className="text-[20px] text-white">₹ {order.amount}</p>
                         </div>
 
-                        <select value={order.status} className="px-[5px] py-[10px] bg-slate-500 rounded-lg border-[1px] border-[#96eef3]">
+                        <select value={order.status} className="px-[5px] py-[10px] bg-slate-500 rounded-lg border-[1px] border-[#96eef3]" onChange={(e) => statusHandler(e,order._id)}>
                           <option value="Order Placed">Order Placed</option>  
                           <option value="Packing">Packing</option>  
                           <option value="Shipped">Shipped</option>  

@@ -3,17 +3,14 @@ import jwt from "jsonwebtoken"
 
 export const adminAuth = async(req, res, next) => {
   try {
-    console.log("ALL COOKIES:", req.cookies) 
     
-    const { adminToken } = req.cookies
-    console.log("ADMIN TOKEN:", adminToken)   
+    const { adminToken } = req.cookies 
     
     if (!adminToken) {
       return res.status(401).json({ message: "admin does not have token" })
     }
 
     const verifyToken = jwt.verify(adminToken, process.env.JWT_SECRET)
-    console.log("VERIFY TOKEN:", verifyToken) 
 
     if (verifyToken.email !== process.env.ADMIN_EMAIL) {
       console.log("EMAIL:", verifyToken.email, "ENV:", process.env.ADMIN_EMAIL) 

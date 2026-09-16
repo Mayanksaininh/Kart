@@ -29,3 +29,4 @@ If you are developing a production application, we recommend using TypeScript wi
 -Create Remove product button and adding api of backend ,
 -Start craeting orders component for admin ,
 -Working on MyOrder component frontend ,
+-Order status chnaging button attached succesfully,
