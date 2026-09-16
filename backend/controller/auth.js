@@ -137,3 +137,7 @@ export const adminlogin = async (req,res) =>{
      return res.status(400).json({message : "Admin login error"})   
     }
 }
+
+export const verifyAdmin = async(req, res) => {
+    return res.status(200).json({ email: req.adminEmail })
+}

@@ -15,7 +15,7 @@ export const AdminContextProvider = ({children}) => {
 
     const getAdmin = async() =>{
         try{
-        const result = await axios.get(ServerUrl + "/api/user/getAdmin" , {withCredentials : true})
+        const result = await axios.get(ServerUrl + "/api/auth/verifyAdmin" , {withCredentials : true})
         setadminData(result.data)
         }
         catch(error) {
