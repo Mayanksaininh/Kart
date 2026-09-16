@@ -31,3 +31,4 @@ If you are developing a production application, we recommend using TypeScript wi
 -Working on MyOrder component frontend ,
 -Order status chnaging button attached succesfully,
 -After refresh admin panel become log out with out click on log out button now it resolve,
+-Logout butoon is always showing now it will show after admin authentication,

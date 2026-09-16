@@ -78,7 +78,7 @@ return (
                             <p>{order.address.firstname+ " " +order.address.lastname}</p>
                             <p>{order.address.email + ", " + "Contact : " + order.address.contact}</p>
                             <p>{order.address.street + ", " +"House Number : " + order.address.houseNumber+ ", "+"Land-Mark : " + order.address.landmark}</p>
-                            <p>{order.address.city + ", " + order.address.pincode + ", " + order.address.state + ", " + order.address.country}</p>
+                            <p>{"City : "+order.address.city + ", " + order.address.pincode + ", " + order.address.state + ", " + order.address.country}</p>
                         </div>
 
                         <div className="text-[15px] "></div>
