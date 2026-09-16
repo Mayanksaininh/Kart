@@ -60,11 +60,9 @@ const Contact = () =>{
             <div className="flex gap-3 flex-wrap">
               {[
                 { label: "Instagram", color: "from-pink-500 to-purple-500" },
-                
-                { label: "Facebook", color: "from-blue-600 to-blue-400" },
-                { label: "YouTube", color: "from-red-500 to-red-400" },
+                { label: "YouTube", color: "from-red-500 to-red-400" }
               ].map(({ label, color }) => (
-                <button key={label} className={`px-4 py-2 rounded-lg bg-gradient-to-r ${color} text-white text-xs font-medium hover:opacity-90 transition-opacity duration-200`}>
+                <button key={label} className={`px-4 py-2 rounded-lg bg-gradient-to-r ${color} text-white text-xs font-medium hover:opacity-90 transition-opacity duration-200`} onClick={() => { if (label === "YouTube") { window.open( "https://www.youtube.com/@pinkysaini6110", "_blank" ); } }}>
                   {label}
                 </button>
               ))}
