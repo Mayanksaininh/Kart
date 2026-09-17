@@ -76,6 +76,7 @@ export const logOut = async(req,res) =>{
             sameSite: "lax",
             secure: false
         })
+        res.clearCookie("adminToken", { httpOnly: true, sameSite: "lax", secure: false }) 
         return res.status(200).json({message : "LogOut successful"})
     } catch (error) {
         console.log("login Error");
