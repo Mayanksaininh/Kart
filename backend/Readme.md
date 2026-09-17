@@ -30,3 +30,6 @@
 -craete userOrder route ,
 -Create OrderRoutes for Admin ,
 -After refresh admin panel become log out with out click on log out button now it resolve,
+-Create acount on Razorpay, Genreate Razorpay key secret and Razorpay key ID in test mode.
+-Installed RazorPay package in backend with command npm i razorpay.
+-Create Razorpay instance in orderController.js.
