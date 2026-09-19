@@ -54,3 +54,4 @@ If you are developing a production application, we recommend using TypeScript wi
 -Start creating PlaceOrder component ,
 -Start creating My order component for user ,
 -Youtube is Linked at contact component,
+-Create function for razorpay in placeorder component,

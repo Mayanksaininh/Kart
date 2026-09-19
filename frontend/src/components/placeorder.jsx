@@ -32,6 +32,23 @@ const PlaceOrder = () => {
       setformData(data => ({...data , [name] : value}))
 }
 
+const initPay = (order) => {
+  const option = {
+    key : import.meta.env.RAZORPAY_KEY_ID ,
+    amount : order.amount,
+    currency : order.currency,
+    name : "Order payment",
+    description : "order payment" ,
+    order_id : order.id,
+    receipt : order.receipt,
+    handler : async(response) =>{
+      console.log(response);
+
+      const rzp = new window.razorpay(option)
+      rzp.open()
+    }
+  }
+}
 
 const onSubmitHandler = async(e) => {
         e.preventDefault()
@@ -61,15 +78,19 @@ const onSubmitHandler = async(e) => {
 
      switch (method) {
     case "razorpay": {
-    const result = await axios.post(ServerUrl + "/api/order/placeorder", orderData, { withCredentials: true })
-    console.log(result.data);
+    const resultRazorpay = await axios.post(ServerUrl + "/api/order/razorpay", orderData, { withCredentials: true })
+    console.log(resultRazorpay.data);
 
-    if(result.data){
+    if(resultRazorpay.data){
+      initPay(resultRazorpay.data)
+    }
+
+    if(resultRazorpay.data){
       setcartItem({})
       navigate("/myorder")
     }
     else{
-      console.log(result.data.message);
+      console.log(resultRazorpay.data.message);
     }
     break;  
   }
