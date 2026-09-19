@@ -33,3 +33,4 @@
 -Create acount on Razorpay, Genreate Razorpay key secret and Razorpay key ID in test mode.
 -Installed RazorPay package in backend with command npm i razorpay.
 -Create Razorpay instance in orderController.js.
+-Create Route of RazorPay in OrderRoute,

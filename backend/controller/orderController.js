@@ -1,5 +1,10 @@
 import User from "../models/userModel.js"
 import Order from "../models/orderModel.js"
+import Razorpay from "razorpay"
+
+
+const currency = 'inr'
+
 
 export const placeOrder = async (req,res) =>{
     try {
@@ -25,6 +30,47 @@ export const placeOrder = async (req,res) =>{
     } catch (error) {
         console.log(error)
         return res.status(500).json({message : 'Order Placed Error'}) 
+    }
+}
+
+
+export const placeOrderRazorpay = async (req,res) => {
+var Razorpayinstance = new Razorpay({
+  key_id: process.env.RAZORPAY_KEY_ID ,
+  key_secret: process.env.RAZORPAY_KEY_SECRET,
+})
+    try {
+        const {items , amount , address} = req.body
+            const userId = req.userId
+            const orderData = {
+            items,
+            amount,
+            userId,
+            address,
+            payment : false,
+            date : Date.now()
+        }
+
+        const newOrder = new Order(orderData)
+        await newOrder.save() 
+
+        const options = {
+            amount : amount *100,
+            currency : currency.toUpperCase(),
+            recipt : newOrder._id.toString()
+        }
+
+        await Razorpayinstance.orders.create(options, (error , order) => {
+            if(error){
+                console.log(error)
+                return res.status(500).json(error)
+            }
+            res.status(200).json(order)
+        })
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({message : error.message})
     }
 }
 
