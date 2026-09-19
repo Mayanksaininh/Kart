@@ -32,9 +32,11 @@ const PlaceOrder = () => {
       setformData(data => ({...data , [name] : value}))
 }
 
-const initPay = (order) => {
-  const option = {
-    key : import.meta.env.RAZORPAY_KEY_ID ,
+  const initPay = (order) => {
+  //    console.log("initPay called", order)  // 👈
+  // console.log("key:", import.meta.env.VITE_RAZORPAY_KEY_ID)
+    const option = {
+    key : import.meta.env.VITE_RAZORPAY_KEY_ID ,
     amount : order.amount,
     currency : order.currency,
     name : "Order payment",
@@ -43,15 +45,18 @@ const initPay = (order) => {
     receipt : order.receipt,
     handler : async(response) =>{
       console.log(response);
-
-      const rzp = new window.razorpay(option)
-      rzp.open()
+       setcartItem({})        
+      navigate("/myorder")   
     }
   }
+   const rzp = new window.Razorpay(option)
+      rzp.open()
 }
 
 const onSubmitHandler = async(e) => {
         e.preventDefault()
+
+
 
       if (!method) {
     alert("Please select a payment method")
@@ -85,13 +90,13 @@ const onSubmitHandler = async(e) => {
       initPay(resultRazorpay.data)
     }
 
-    if(resultRazorpay.data){
-      setcartItem({})
-      navigate("/myorder")
-    }
-    else{
-      console.log(resultRazorpay.data.message);
-    }
+    // if(resultRazorpay.data){
+    //   setcartItem({})
+    //   navigate("/myorder")
+    // }
+    // else{
+    //   console.log(resultRazorpay.data.message);
+    // }
     break;  
   }
   default:

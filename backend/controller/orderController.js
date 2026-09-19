@@ -42,6 +42,9 @@ var Razorpayinstance = new Razorpay({
     try {
         const {items , amount , address} = req.body
             const userId = req.userId
+
+    //          console.log("RAZORPAY KEY:", process.env.RAZORPAY_KEY_ID)  // 👈
+    // console.log("amount:", amount)
             const orderData = {
             items,
             amount,
@@ -57,19 +60,21 @@ var Razorpayinstance = new Razorpay({
         const options = {
             amount : amount *100,
             currency : currency.toUpperCase(),
-            recipt : newOrder._id.toString()
+            receipt : newOrder._id.toString()
         }
+
+           console.log("options:", options)
 
         await Razorpayinstance.orders.create(options, (error , order) => {
             if(error){
-                console.log(error)
+                //  console.log("Razorpay error:", error)
                 return res.status(500).json(error)
             }
             res.status(200).json(order)
         })
 
     } catch (error) {
-        console.log(error);
+        console.log("placeOrderRazorpay catch error:", error)
         res.status(500).json({message : error.message})
     }
 }

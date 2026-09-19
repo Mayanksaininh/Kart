@@ -55,3 +55,5 @@ If you are developing a production application, we recommend using TypeScript wi
 -Start creating My order component for user ,
 -Youtube is Linked at contact component,
 -Create function for razorpay in placeorder component,
+-Add script tag in which razorpay window add in index.hmtl,
+-Create initPay function for placeorder in placeorder component ,
