@@ -199,7 +199,7 @@ const onSubmitHandler = async(e) => {
           <span className="text-[#9ff9f9]">{currency} {getcartAmount() === 0 ? 0 : getcartAmount() + delivery_fee}.00</span>
         </div>
 
-      <button 
+      {/* <button 
       type="button"
       onClick={() => setmethod("razorpay")}
   className={`w-full sm:w-auto px-6 py-3
@@ -218,11 +218,11 @@ const onSubmitHandler = async(e) => {
     className="w-5 h-5 rounded-sm"
   />
   Pay with Razorpay
-</button>
+</button> */}
 
-<h4 className="w-full text-center text-grey text-sm sm:text-base font-small mt-0">
+{/* <h4 className="w-full text-center text-grey text-sm sm:text-base font-small mt-0">
   Click on Razorpay! Before clicking on Place Order
-</h4>
+</h4> */}
 
         <div className="w-full flex justify-center mt-4">
 
@@ -236,7 +236,7 @@ const onSubmitHandler = async(e) => {
                     hover:from-blue-600 hover:to-cyan-500 
                     active:scale-95 transition-all duration-200"
                 >
-                Place Order
+                Place Order With Razorpay
                 </button>
         </div>
        
