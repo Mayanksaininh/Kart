@@ -75,7 +75,7 @@ return (
                         </div>
 
                         <div className="text-[15px] text-green-100">
-                            <p>{order.address.firstname+ " " +order.address.lastname}</p>
+                            <p>{"Mr./Mrs. "+order.address.firstname+ " " +order.address.lastname}</p>
                             <p>{order.address.email + ", " + "Contact : " + order.address.contact}</p>
                             <p>{order.address.street + ", " +"House Number : " + order.address.houseNumber+ ", "+"Land-Mark : " + order.address.landmark}</p>
                             <p>{"City : "+order.address.city + ", " + order.address.pincode + ", " + order.address.state + ", " + order.address.country}</p>
@@ -84,6 +84,7 @@ return (
                         <div className="text-[15px] "></div>
                             <p>Items : {order.items.length}</p>
                             <p>Payment : {order.payment ? "Done" : "Pending"}</p>
+                             <p>Time : {new Date(order.date).toLocaleTimeString()}</p>
                             <p>Date : {new Date(order.date).toLocaleDateString()}</p>
                             <p className="text-[20px] text-white">₹ {order.amount}</p>
                         </div>
