@@ -47,6 +47,11 @@ const PlaceOrder = () => {
       console.log(response);
        setcartItem({})        
       navigate("/myorder")   
+      const {data} = await axios.post(ServerUrl + "/api/order/verifyrazorpay" , response, {withCredentials : true})
+      if(data){
+        navigate("/MyOrder")
+        setcartItem ({})
+      }
     }
   }
    const rzp = new window.Razorpay(option)

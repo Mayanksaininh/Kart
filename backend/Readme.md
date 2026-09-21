@@ -34,3 +34,6 @@
 -Installed RazorPay package in backend with command npm i razorpay.
 -Create Razorpay instance in orderController.js.
 -Create Route of RazorPay in OrderRoute,
+-Razorpay payment verify function in orderController.js ,
+-Create route for razorpay payment verify function ,
+-Add razorpay instance in verify function for fixing a bug beacuse after payment admin can not see the payment done or not ,
