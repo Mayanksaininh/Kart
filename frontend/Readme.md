@@ -57,3 +57,4 @@ If you are developing a production application, we recommend using TypeScript wi
 -Create function for razorpay in placeorder component,
 -Add script tag in which razorpay window add in index.hmtl,
 -Create initPay function for placeorder in placeorder component ,
+-Install React-toastify (for showing notification on screen ),
