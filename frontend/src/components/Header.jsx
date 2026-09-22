@@ -37,7 +37,7 @@ const Header = () => {
     {/* LEFT: LOGO */}
     <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate("/")}>
       <img className="h-10 md:h-12" src={logo} alt="logo" />
-      <h1 className="text-white text-xl md:text-2xl font-semibold">Kart</h1>
+      <h1 className="text-white text-xl md:text-2xl font-semibold">K-Art</h1>
     </div>
 
     {/* CENTER MENU (NOW ALWAYS VISIBLE) */}

@@ -13,7 +13,7 @@ const Header = () => {
                     <img className="h-8 sm:h-10 md:h-12 w-auto" 
                     src="https://static.vecteezy.com/system/resources/thumbnails/026/956/862/small/shopping-cart-basket-png.png" 
                     alt="Logo" />
-                    <h1 className="text-white text-base sm:text-xl md:text-3xl font-semibold">Kart-Admin</h1>
+                    <h1 className="text-white text-base sm:text-xl md:text-3xl font-semibold">K-Art Admin</h1>
                   </div>
             {adminData && <LogOut />}
         </div>
