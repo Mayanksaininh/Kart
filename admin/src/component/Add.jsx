@@ -3,8 +3,12 @@ import SideBar from "./SideBar";
 import { useState } from "react";
 import { AuthDataContext } from "../Context/AuthContext";
 import axios from "axios"
+import { toast } from "react-toastify";
+import { Loading } from "./Loading";
 
 const Add = () => {
+
+  const [Loading , setLoading] = useState(false)
 
     const [image1 , setimage1] = useState(null)
     const [image2 , setimage2] = useState(null)
@@ -18,6 +22,7 @@ const Add = () => {
     const {ServerUrl} = useContext(AuthDataContext)
 
     const handleAddProduct = async(e) =>{
+      setLoading(true)
       e.preventDefault()
       try {
         let formData = new FormData()
@@ -31,6 +36,12 @@ const Add = () => {
         formData.append("image4", image4)
 
         const result = await axios.post(ServerUrl + "/api/product/addproduct" , formData , {withCredentials : true})
+
+        
+        toast.success("Add Item Successfully ")
+
+        setLoading(false)
+        
         if(result.data){
           setname("")
           setdescription("")
@@ -43,6 +54,11 @@ const Add = () => {
         }
       } catch (error) {
         console.log("Adding product error");
+
+        setLoading(false)
+
+        toast.error("Add Item failed ")
+
       }
     } 
 
@@ -124,7 +140,7 @@ const Add = () => {
               type="submit"
               className="w-full bg-indigo-500 hover:bg-indigo-600 py-2 rounded-md text-white text-sm sm:text-base"
             >
-              Add Product
+              {Loading ? <Loading/> : "Add Product"}
             </button>
 
           </form>

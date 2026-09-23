@@ -32,3 +32,6 @@ If you are developing a production application, we recommend using TypeScript wi
 -Order status chnaging button attached succesfully,
 -After refresh admin panel become log out with out click on log out button now it resolve,
 -Logout butoon is always showing now it will show after admin authentication,
+-Install React-toastify (for showing notification on screen) ,
+-Create loading component like shimmer UI ,
+-Implement shimmer UI in Add component with toastify notification ,
