@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import { ShopDataContext } from "../context/ShopContext";
+import { ToastContainer, toast } from 'react-toastify';
 
 const ProductDetail = () =>{
     const {productId} = useParams()
@@ -36,6 +37,17 @@ const ProductDetail = () =>{
 
     return productData ? (
   <div className="w-full min-h-screen mt-[70px] flex flex-col lg:flex-row items-start justify-start gap-8 px-4 lg:px-10">
+
+      <ToastContainer
+      position="top-right"
+      autoClose={3000}
+      hideProgressBar={false}
+      newestOnTop
+      closeOnClick
+      pauseOnHover
+      theme="light"
+      style={{ marginTop: "64px" }}
+    />
 
     {/* LEFT: THUMBNAILS */}
     <div className="flex lg:flex-col flex-row gap-3 order-2 lg:order-1">
@@ -79,7 +91,9 @@ const ProductDetail = () =>{
       </p>
 
       <button className="text-[16px] cursor-pointer bg-[#495b61c9] py-[10px] px-[20px] rounded-2xl mt-[10px] border border-[#80808049] text-white shadow-md shadow-black 
-      hover:bg-[#5f737a] hover:shadow-lg hover:scale-105 transition-all duration-200 active:bg-slate-300" onClick={() => addtoCart(productData._id)}>
+      hover:bg-[#5f737a] hover:shadow-lg hover:scale-105 transition-all duration-200 active:bg-slate-300" onClick={() =>{addtoCart(productData._id)
+        toast.success("Product added to cart! 🛒")
+      }}>
              Add to Cart
       </button>
 

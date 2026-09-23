@@ -59,3 +59,4 @@ If you are developing a production application, we recommend using TypeScript wi
 -Create initPay function for placeorder in placeorder component ,
 -Install React-toastify (for showing notification on screen ),
 -Add toastify at the respose of razorpay ,
+-Add toastify at the response of Add to Cart button ,
