@@ -59,13 +59,17 @@ const Contact = () =>{
             <p className="text-gray-400 text-sm mb-5">Stay connected for offers, updates and support.</p>
             <div className="flex gap-3 flex-wrap">
               {[
-                { label: "Instagram", color: "from-pink-500 to-purple-500" },
-                { label: "YouTube", color: "from-red-500 to-red-400" }
-              ].map(({ label, color }) => (
-                <button key={label} className={`px-4 py-2 rounded-lg bg-gradient-to-r ${color} text-white text-xs font-medium hover:opacity-90 transition-opacity duration-200`} onClick={() => { if (label === "YouTube") { window.open( "https://www.youtube.com/@pinkysaini6110", "_blank" ); } }}>
-                  {label}
-                </button>
-              ))}
+               { label: "Instagram", color: "from-pink-500 to-purple-500", url: "https://www.instagram.com/pinkysainipk" },
+               { label: "YouTube", color: "from-red-500 to-red-400", url: "https://www.youtube.com/@pinkysaini6110" }
+              ].map(({ label, color, url }) => (
+                  <button
+                    key={label}
+                    className={`px-4 py-2 rounded-lg bg-gradient-to-r ${color} text-white text-xs font-medium hover:opacity-90 transition-opacity duration-200`}
+                    onClick={() => window.open(url, "_blank")}
+                  >
+                {label}
+                  </button>
+               ))}
             </div>
           </div>
         </div>

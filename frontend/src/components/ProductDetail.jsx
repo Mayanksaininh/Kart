@@ -92,7 +92,7 @@ const ProductDetail = () =>{
 
       <button className="text-[16px] cursor-pointer bg-[#495b61c9] py-[10px] px-[20px] rounded-2xl mt-[10px] border border-[#80808049] text-white shadow-md shadow-black 
       hover:bg-[#5f737a] hover:shadow-lg hover:scale-105 transition-all duration-200 active:bg-slate-300" onClick={() =>{addtoCart(productData._id)
-        toast.success("Product added to cart! 🛒")
+        toast.success("Product added to Cart! 🛒")
       }}>
              Add to Cart
       </button>
