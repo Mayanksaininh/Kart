@@ -3,6 +3,7 @@ import { ShopDataContext } from "../context/ShopContext";
 import axios from "axios";
 import  { AuthDataContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
 
 const PlaceOrder = () => {
   
@@ -45,13 +46,21 @@ const PlaceOrder = () => {
     receipt : order.receipt,
     handler : async(response) =>{
       console.log(response);
-       setcartItem({})        
-      navigate("/myorder")   
-      const {data} = await axios.post(ServerUrl + "/api/order/verifyrazorpay" , response, {withCredentials : true})
-      if(data){
-        navigate("/MyOrder")
-        setcartItem ({})
-      }
+       try {
+    const { data } = await axios.post(
+      ServerUrl + "/api/order/verifyrazorpay",
+      response,
+      { withCredentials: true }
+    )
+    if(data.message === "Payment successful") {
+      toast.success("Order placed successfully! 🎉")  
+      setcartItem({})
+      setTimeout(() => navigate("/myorder"), 2000)   
+    }
+  } catch(error) {
+    console.log(error)
+    toast.error("Payment verification failed!")
+  }
     }
   }
    const rzp = new window.Razorpay(option)
@@ -115,6 +124,18 @@ const onSubmitHandler = async(e) => {
 
     return (
       <div className="flex flex-col lg:flex-row gap-6 px-4 sm:px-6 lg:px-10 py-6">
+
+         <ToastContainer
+      position="top-right"
+      autoClose={3000}
+      hideProgressBar={false}
+      newestOnTop
+      closeOnClick
+      pauseOnHover
+      theme="light"
+      style={{ marginTop: "64px" }}
+    />
+
         <div className="w-full lg:w-1/2">
   <form className="w-full lg:w-[70%] flex flex-col gap-4" onSubmit={onSubmitHandler} id="placeorder-form">
     
@@ -241,7 +262,7 @@ const onSubmitHandler = async(e) => {
                     hover:from-blue-600 hover:to-cyan-500 
                     active:scale-95 transition-all duration-200"
                 >
-                Place Order With Razorpay
+                Place Order
                 </button>
         </div>
        
