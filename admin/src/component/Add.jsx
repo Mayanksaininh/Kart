@@ -8,7 +8,7 @@ import { Loading } from "./Loading";
 
 const Add = () => {
 
-  const [Loading , setLoading] = useState(false)
+  const [IsLoading , setIsLoading] = useState(false)
 
     const [image1 , setimage1] = useState(null)
     const [image2 , setimage2] = useState(null)
@@ -22,8 +22,8 @@ const Add = () => {
     const {ServerUrl} = useContext(AuthDataContext)
 
     const handleAddProduct = async(e) =>{
-      setLoading(true)
-      e.preventDefault()
+       e.preventDefault()        // 👈 pehle
+      setIsLoading(true)        // 👈 phir
       try {
         let formData = new FormData()
         formData.append("name" , name)
@@ -40,7 +40,7 @@ const Add = () => {
         
         toast.success("Add Item Successfully ")
 
-        setLoading(false)
+        setIsLoading(false)
         
         if(result.data){
           setname("")
@@ -53,9 +53,9 @@ const Add = () => {
           setCategory("Craft")
         }
       } catch (error) {
-        console.log("Adding product error");
+        console.log(error);;
 
-        setLoading(false)
+        setIsLoading(false)
 
         toast.error("Add Item failed ")
 
@@ -140,7 +140,7 @@ const Add = () => {
               type="submit"
               className="w-full bg-indigo-500 hover:bg-indigo-600 py-2 rounded-md text-white text-sm sm:text-base"
             >
-              {Loading ? <Loading/> : "Add Product"}
+              {IsLoading ? <Loading/> : "Add Product"}
             </button>
 
           </form>

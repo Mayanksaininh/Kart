@@ -37,3 +37,4 @@
 -Razorpay payment verify function in orderController.js ,
 -Create route for razorpay payment verify function ,
 -Add razorpay instance in verify function for fixing a bug beacuse after payment admin can not see the payment done or not ,
+-There was an error in the add product component and the error is don't post the same images ,
