@@ -61,3 +61,4 @@ If you are developing a production application, we recommend using TypeScript wi
 -Add toastify at the respose of razorpay ,
 -Add toastify at the response of Add to Cart button ,
 -Instagram is linked with instagram button in contact.js component ,
+-Add Search functionailty in the collectiion.js component ,

@@ -7,6 +7,7 @@ const Collection = () => {
   const {product} = useContext(ShopDataContext)
   const [filterProduct , setfilterProduct] = useState([])
   const [category , setcategory] = useState([])
+  const [searchQuery, setsearchQuery] = useState("")
 
   const toggleCategory = (e)=>{
     if(category.includes(e.target.value)){
@@ -25,12 +26,32 @@ const Collection = () => {
     setfilterProduct(productcopy)
   }
 
+  const handleSearch = () => {
+    const query = searchQuery.trim().toLowerCase()
+    if (!query) {
+      // empty search — puri collection dikhao (category filter ke saath)
+      applyfilter()
+      return
+    }
+    let productcopy = product.slice()
+    if (category.length > 0) {
+      productcopy = productcopy.filter(item => category.includes(item.category))
+    }
+    productcopy = productcopy.filter(item =>
+      item.name.toLowerCase().includes(query) ||
+      item.description?.toLowerCase().includes(query) ||
+      item.category?.toLowerCase().includes(query)
+    )
+    setfilterProduct(productcopy)
+  }
+
   useEffect(()=>{
     setfilterProduct(product)
   },[product])
 
   useEffect(() => {
     applyfilter()
+    setsearchQuery("") 
   } , [category])
 
   return (
@@ -67,8 +88,11 @@ const Collection = () => {
             type="text"
             placeholder="Search..."
             className="px-3 py-1 rounded-lg outline-none bg-white w-full max-w-sm"
+             value={searchQuery}
+            onChange={(e) => setsearchQuery(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && handleSearch()}
           />
-          <button className="bg-red-500 px-3 py-1 rounded-lg text-white hover:bg-red-600">
+          <button className="bg-red-500 px-3 py-1 rounded-lg text-white hover:bg-red-600" onClick={handleSearch}>
             Search
           </button>
          </div>
