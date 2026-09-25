@@ -23,7 +23,7 @@ const Contact = () =>{
           { emoji: "📩", label: "Email Us", value: "@gmail.com" },
           { emoji: "📞", label: "Only WhatsApp", value: "+91 ----------" },
           { emoji: "🕐", label: "Working Hours", value: "Mon–Sat, 9AM–7PM IST" },
-          { emoji: "📍", label: "Our Office", value: "12, MG Road, Delhi" },
+          { emoji: "📍", label: "Our Office", value: "Opp. S.D. college, 2nd floor, Near Nehru Stadium Roorkee (U.K.)" },
         ].map(({ emoji, label, value }) => (
           <div key={label} className="bg-gray-800/60 border border-gray-700 rounded-xl p-5 text-center hover:border-purple-400 transition-all duration-300">
             <div className="text-3xl mb-3">{emoji}</div>
