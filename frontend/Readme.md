@@ -68,3 +68,4 @@ If you are developing a production application, we recommend using TypeScript wi
 -Makes a function Utterence for speak synthesis , it will speak only that message which we will prompt only ,
 -Added transcript at every naviagation component ,
 -Add Toast at VoiceAI component ,
+-Change the size of VoiceAI image after click using usetate ,

@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast ,ToastContainer } from "react-toastify";
 
 const VoiceAI = () =>{
 
+    const [isListening, setIsListening] = useState(false)
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
     const Recognition = new SpeechRecognition()
     if(!Recognition){
@@ -58,13 +59,18 @@ const VoiceAI = () =>{
     const startRecognition = () => {
         try {
             Recognition.start()
+            setIsListening(true)
         } catch(error) {
             console.log("Already running")
         }
     }
 
+    Recognition.onend = () => {
+    setIsListening(false)  // 👈 end hone pe normal
+}
+
     return(
-         <div>
+         <div className="w-fit">
         <ToastContainer
             position="top-right"
             autoClose={3000}
@@ -72,7 +78,8 @@ const VoiceAI = () =>{
             style={{ marginTop: "64px" }}
         />
         <div className="fixed lg:bottom-[20px] md:bottom-[40px] bottom-[80px] left-[2%]" onClick={startRecognition}>
-            <img src="https://forgefwd.com/wp-content/uploads/2020/12/png-clipart-call-center-agent-logo-virtual-assistant-computer-icons-personal-assistant-business-management-support-blue-company.png" alt="AI" className="w-[56px] cursor-pointer object-contain" />
+            <img src="https://forgefwd.com/wp-content/uploads/2020/12/png-clipart-call-center-agent-logo-virtual-assistant-computer-icons-personal-assistant-business-management-support-blue-company.png" alt="AI" className={`cursor-pointer object-contain transition-all duration-300
+                    ${isListening ? "w-[75px] h-[75px]" : "w-[56px] h-[56px]"}`} />
         </div>
     </div>
     )
