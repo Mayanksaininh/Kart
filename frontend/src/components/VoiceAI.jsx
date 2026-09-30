@@ -40,7 +40,7 @@ const VoiceAI = () =>{
         }
 
         else if(transcript.toLowerCase().includes("my order") || transcript.toLowerCase().includes("my orders") || transcript.toLowerCase().includes("my orders page") || transcript.toLowerCase().includes("orders") || transcript.toLowerCase().includes("ordered") || transcript.toLowerCase().includes("my ordered products")){
-            speak("opening my order page")
+            speak("opening my orders page")
             navigate("/myorder")
         }
 
@@ -49,8 +49,21 @@ const VoiceAI = () =>{
         }
     }
 
+    Recognition.onend = () => {
+        console.log("Recognition stopped")
+    }
+
+    // 👈 yahan add karo — return se pehle
+    const startRecognition = () => {
+        try {
+            Recognition.start()
+        } catch(error) {
+            console.log("Already running")
+        }
+    }
+
     return(
-        <div className="fixed lg:bottom-[20px] md:bottom-[40px] bottom-[80px] left-[2%]" onClick={()=>Recognition.start()}>
+        <div className="fixed lg:bottom-[20px] md:bottom-[40px] bottom-[80px] left-[2%]" onClick={startRecognition}>
             <img src ="https://forgefwd.com/wp-content/uploads/2020/12/png-clipart-call-center-agent-logo-virtual-assistant-computer-icons-personal-assistant-business-management-support-blue-company.png" alt = "AI" className="w-[56px] cursor-pointer"></img>
         </div>
     )
