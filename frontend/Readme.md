@@ -65,3 +65,5 @@ If you are developing a production application, we recommend using TypeScript wi
 -Create component of VoiceAI ,
 -Add voiceAI in PrivateRoute in Body component,
 -Create a function with name SpeechRecognition and there is a function in window with the name of SpeechRecognition and it is suggested that it will work in Chrome Browser ,
+-Makes a function Utterence for speak synthesis , it will speak only that message which we will prompt only ,
+-Added transcript at every naviagation component ,
