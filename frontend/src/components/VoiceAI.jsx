@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { toast ,ToastContainer } from "react-toastify";
 
 const VoiceAI = () =>{
 
@@ -63,9 +63,17 @@ const VoiceAI = () =>{
     }
 
     return(
+         <div>
+        <ToastContainer
+            position="top-right"
+            autoClose={3000}
+            theme="light"
+            style={{ marginTop: "64px" }}
+        />
         <div className="fixed lg:bottom-[20px] md:bottom-[40px] bottom-[80px] left-[2%]" onClick={startRecognition}>
-            <img src ="https://forgefwd.com/wp-content/uploads/2020/12/png-clipart-call-center-agent-logo-virtual-assistant-computer-icons-personal-assistant-business-management-support-blue-company.png" alt = "AI" className="w-[56px] cursor-pointer"></img>
+            <img src="https://forgefwd.com/wp-content/uploads/2020/12/png-clipart-call-center-agent-logo-virtual-assistant-computer-icons-personal-assistant-business-management-support-blue-computer-icons.png" alt="AI" className="w-[56px] cursor-pointer" />
         </div>
+    </div>
     )
 }
 
