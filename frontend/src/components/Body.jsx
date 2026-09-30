@@ -12,6 +12,7 @@ import ProductDetail from "./ProductDetail";
 import Cart from "./Cart"
 import PlaceOrder from "./placeorder";
 import MyOrder from "./MyOrder";
+import VoiceAI from "./VoiceAI";
 
 
 const Body = () => {
@@ -95,6 +96,10 @@ const Body = () => {
        />
 
       </Routes>
+
+      <PrivateRoute>
+        <VoiceAI />
+      </PrivateRoute>
     </div>
   );
 };

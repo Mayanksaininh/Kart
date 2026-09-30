@@ -62,3 +62,6 @@ If you are developing a production application, we recommend using TypeScript wi
 -Add toastify at the response of Add to Cart button ,
 -Instagram is linked with instagram button in contact.js component ,
 -Add Search functionailty in the collectiion.js component ,
+-Create component of VoiceAI ,
+-Add voiceAI in PrivateRoute in Body component,
+-Create a function with name SpeechRecognition and there is a function in window with the name of SpeechRecognition and it is suggested that it will work in Chrome Browser ,
