@@ -17,7 +17,7 @@ function ShopContext ({children}) {
 
     const getproduct = async() =>{
         try {
-            const result = await axios.get(https://kart-backend-ymb3.onrender.com + "/api/product/listproduct" , {withCredentials : true})
+            const result = await axios.get("https://kart-backend-ymb3.onrender.com" + "/api/product/listproduct" , {withCredentials : true})
             setproduct(result.data)
         } catch (error) {
             console.log("Get product Error : " + error)
