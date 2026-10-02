@@ -6,7 +6,7 @@ export const userDataContext = createContext();
 const UserContextProvider = ({ children }) => {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const ServerUrl = "http://localhost:8000"; // or from env
+  const ServerUrl = "https://kart-backend-ymb3.onrender.com" // or from env
 
   // ✅ stable function (important)
   const getCurrentUser = useCallback(async () => {
