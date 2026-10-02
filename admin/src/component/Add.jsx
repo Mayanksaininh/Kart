@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import SideBar from "./SideBar";
 import { useState } from "react";
-import { AuthDataContext } from "../Context/AuthContext";
+// import { AuthDataContext } from "../Context/AuthContext";
 import axios from "axios"
 import { toast } from "react-toastify";
 import { Loading } from "./Loading";
@@ -19,7 +19,7 @@ const Add = () => {
     const [price, setprice] = useState("")
     const [category, setCategory] = useState("Craft");
 
-    const {ServerUrl} = useContext(AuthDataContext)
+    // const {ServerUrl} = useContext(AuthDataContext)
 
     const handleAddProduct = async(e) =>{
        e.preventDefault()        // 👈 pehle
@@ -35,7 +35,7 @@ const Add = () => {
         formData.append("image3" , image3)
         formData.append("image4", image4)
 
-        const result = await axios.post(ServerUrl + "/api/product/addproduct" , formData , {withCredentials : true})
+        const result = await axios.post("https://kart-backend-ymb3.onrender.com" + "/api/product/addproduct" , formData , {withCredentials : true})
 
         
         toast.success("Add Item Successfully ")
