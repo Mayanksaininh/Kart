@@ -13,7 +13,7 @@ import orderRoutes from "./routes/orderRoute.js";
 
 const app = express()
 app.use(cors({
-    origin : [ "http://localhost:5174" , "https://kart-frontend-eeht.onrender.com" ,"http://localhost:5173"],
+    origin : [ "http://localhost:5174" , "https://kart-frontend-eeht.onrender.com" ,"http://localhost:5173" ,"https://kart-admin.onrender.com"],
     credentials : true,
     expires: new Date(0),
       methods: ["GET", "POST", "PUT", "DELETE"],
