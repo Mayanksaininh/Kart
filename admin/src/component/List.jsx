@@ -1,17 +1,17 @@
 import React, { useContext, useEffect } from "react";
 import SideBar from "./SideBar";
 import { useState } from "react";
-import { AuthDataContext } from "../Context/AuthContext";
+// import { AuthDataContext } from "../Context/AuthContext";
 import axios from "axios";
 
 const List = () => {
 
     const [list, setlist] = useState([])
-    const { ServerUrl } = useContext(AuthDataContext)
+    // const { ServerUrl } = useContext(AuthDataContext)
 
     const fetchList = async () => {
         try {
-            const result = await axios.get(ServerUrl + "/api/product/listproduct", { withCredentials: true })
+            const result = await axios.get("https://kart-backend-ymb3.onrender.com" + "/api/product/listproduct", { withCredentials: true })
             setlist(result.data)
         } catch (error) {
             console.log("Error in fetching List");
