@@ -36,7 +36,7 @@ function ShopContext ({children}) {
          if (userData) {
         try {
             const result = await axios.post(
-                ServerUrl + "/api/cart/add",
+                "https://kart-backend-ymb3.onrender.com" + "/api/cart/add",
                 { itemId : itemid },
                 { withCredentials: true }
             );
@@ -48,7 +48,7 @@ function ShopContext ({children}) {
 
     const getuserCart = async() => {
         try {
-            const result = await axios.post(ServerUrl + "/api/cart/get" , {} , {withCredentials : true})
+            const result = await axios.post("https://kart-backend-ymb3.onrender.com" + "/api/cart/get" , {} , {withCredentials : true})
             setcartItem(result.data)
         } catch (error) {
             console.log(error);
@@ -74,7 +74,7 @@ function ShopContext ({children}) {
         
         if(userData){
             try {
-                await axios.post(ServerUrl + "/api/cart/update", {itemId , quantity} , {withCredentials : true})
+                await axios.post("https://kart-backend-ymb3.onrender.com" + "/api/cart/update", {itemId , quantity} , {withCredentials : true})
             } catch (error) {
              console.log(error);   
             }
