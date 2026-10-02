@@ -11,7 +11,7 @@ const LogOut = () =>{
     const  navigate  = useNavigate()
     const SignOut = async() =>{
         try {
-            const result = await axios.get("http://localhost:8000/api/auth/logOut" , {withCredentials : true })
+            const result = await axios.get("https://kart-backend-ymb3.onrender.com/api/auth/logOut" , {withCredentials : true })
             console.log(result.data);
 
             setadminData(null); // 🔥 YAHI MISSING THA
