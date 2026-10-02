@@ -7,7 +7,7 @@ export const AuthDataContext = createContext();
 export const useAuth = () => useContext(AuthDataContext);
 
 function AuthContext({ children }) {
-  const ServerUrl = "https://kart-backend-ymb3.onrender.com/";
+  const ServerUrl = "https://kart-backend-ymb3.onrender.com";
 
   const [user, setUser]       = useState(null);
   const [loading, setLoading] = useState(true);
