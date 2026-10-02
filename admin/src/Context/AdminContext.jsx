@@ -11,7 +11,7 @@ export const AdminContextProvider = ({children}) => {
     let[adminData , setadminData] = useState(null)
     let [loading, setloading] = useState(true);
 
-    let ServerUrl = "https://kart-backend-ymb3.onrender.com/"
+    let ServerUrl = "https://kart-backend-ymb3.onrender.com"
 
     const getAdmin = async() =>{
         try{
