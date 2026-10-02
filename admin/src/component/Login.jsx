@@ -1,7 +1,7 @@
 import React ,{ useContext } from "react";
 import { useState } from "react";
 import axios from "axios"
-import {AuthDataContext} from "../Context/AuthContext"
+// import {AuthDataContext} from "../Context/AuthContext"
 import { AdminDataContext } from "../Context/AdminContext";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -13,14 +13,14 @@ const navigate = useNavigate()
 
 const { setadminData } = useContext(AdminDataContext);
   
-      const {ServerUrl}  = useContext(AuthDataContext)
+      // const {ServerUrl}  = useContext(AuthDataContext)
   const[email,setemail] = useState("")
   const[password , setpassword] = useState("")
 
   const AdminLogin = async(e) =>{
       e.preventDefault()
     try {
-      const result = await axios.post(ServerUrl + "/api/auth/adminlogin" , { email,password},
+      const result = await axios.post("https://kart-backend-ymb3.onrender.com" + "/api/auth/adminlogin" , { email,password},
         {withCredentials : true})
         console.log(result);
         toast.success("Admin Login Successfully")
