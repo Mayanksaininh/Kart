@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { AuthDataContext } from "./AuthContext";
+// import { AuthDataContext } from "./AuthContext";
 import axios from "axios";
 import { userDataContext } from "./UserContext";
 
@@ -9,7 +9,7 @@ export const ShopDataContext = createContext()
 function ShopContext ({children}) {
     
     const [product,setproduct] = useState([])
-    const {ServerUrl} = useContext(AuthDataContext)
+    // const {ServerUrl} = useContext(AuthDataContext)
     const { userData } = useContext(userDataContext)
     const [cartItem , setcartItem] = useState({})
     let currency = '₹'
@@ -17,7 +17,7 @@ function ShopContext ({children}) {
 
     const getproduct = async() =>{
         try {
-            const result = await axios.get(ServerUrl + "/api/product/listproduct" , {withCredentials : true})
+            const result = await axios.get(https://kart-backend-ymb3.onrender.com + "/api/product/listproduct" , {withCredentials : true})
             setproduct(result.data)
         } catch (error) {
             console.log("Get product Error : " + error)
