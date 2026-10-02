@@ -1,17 +1,17 @@
 import React, { useContext, useEffect, useState } from "react";
 import SideBar from "./SideBar";
-import { AuthDataContext } from "../Context/AuthContext";
+// import { AuthDataContext } from "../Context/AuthContext";
 import axios from "axios";
 
 
 const Orders = () =>{
 
 const [orders , setorders] = useState([])
-const {ServerUrl} = useContext(AuthDataContext)
+// const {ServerUrl} = useContext(AuthDataContext)
 
 const fetchAllOrder = async() => {
     try {
-        const result = await axios.post(ServerUrl + "/api/order/list" , {} , {withCredentials : true})
+        const result = await axios.post("https://kart-backend-ymb3.onrender.com" + "/api/order/list" , {} , {withCredentials : true})
         setorders(result.data.reverse())
     } catch (error) {
         console.log(error);
@@ -21,7 +21,7 @@ const fetchAllOrder = async() => {
 const statusHandler = async(e , orderId) =>{
     try {
         const newStatus = e.target.value
-        const result = await axios.post(ServerUrl + "/api/order/status" , {orderId, status:e.target.value} , {withCredentials : true})
+        const result = await axios.post("https://kart-backend-ymb3.onrender.com" + "/api/order/status" , {orderId, status:e.target.value} , {withCredentials : true})
         
         if(result.data){
             setorders(prev => prev.map(order => 
